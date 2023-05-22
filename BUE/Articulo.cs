@@ -48,8 +48,12 @@ namespace BUE
             set { _stock = value; }
         }
 
+        private Marca _marca;
 
-
-
+        public Marca Marca
+        {
+            get { return _marca; }
+            set { _marca = value; }
+        }
     }
 }

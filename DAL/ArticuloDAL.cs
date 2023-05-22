@@ -29,8 +29,10 @@ namespace DAL
             articuloDeRetorno.Iva = double.Parse(dt.Rows[0]["iva"].ToString());
             articuloDeRetorno.Precio = double.Parse(dt.Rows[0]["precio"].ToString());
             articuloDeRetorno.Stock = int.Parse(dt.Rows[0]["stock"].ToString());
-       
-
+            string nombreMarca = dt.Rows[0]["nombre_marca"].ToString();
+            BUE.Marca marca = new BUE.Marca();
+            marca.NombreMarca = nombreMarca;
+            articuloDeRetorno.Marca = marca;
 
             return articuloDeRetorno;
         }

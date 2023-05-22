@@ -8,6 +8,8 @@ namespace BUE
 {
     public class ItemVenta
     {
+
+
         private int _idItemVenta;
 
         public int IdItemVenta
@@ -30,7 +32,23 @@ namespace BUE
             set { _subTotal = value; }
         }
 
+        private Articulo _articulo;
 
+        public Articulo Articulo
+        {
+            get { return _articulo; }
+            set { _articulo = value; }
+        }
 
+        public ItemVenta()
+        {
+
+        }
+
+        public ItemVenta(double cantidad, Articulo articulo)
+        {
+            Cantidad = cantidad;
+            Articulo = articulo;
+        }
     }
 }

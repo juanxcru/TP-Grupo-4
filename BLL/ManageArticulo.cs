@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUE;
+using DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +10,21 @@ namespace BLL
 {
     public class ManageArticulo
     {
-        public BUE.Articulo ValidarArticulo(string idArticulo, int cantidad)
-        {
+        private ArticuloDAL articuloDAL;
 
+        public ManageArticulo()
+        {
+            articuloDAL = new ArticuloDAL();
+        }
+
+        public Articulo ValidarArticulo(string idArticulo, int cantidad)
+        {
             if (string.IsNullOrWhiteSpace(idArticulo))
             {
                 return null;
             }
-            
-            DAL.ArticuloDAL dalArticulo = new DAL.ArticuloDAL();
 
-
-            return dalArticulo.ValidarArticulo(idArticulo, cantidad);
+            return articuloDAL.ValidarArticulo(idArticulo, cantidad);
         }
     }
 }
