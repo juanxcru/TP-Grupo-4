@@ -147,6 +147,7 @@
             this.btnEliminarArticulo.TabIndex = 11;
             this.btnEliminarArticulo.Text = "Eliminar articulos";
             this.btnEliminarArticulo.UseVisualStyleBackColor = true;
+            this.btnEliminarArticulo.Click += new System.EventHandler(this.btnEliminarArticulo_Click);
             // 
             // btnCancelarVenta
             // 
@@ -156,6 +157,7 @@
             this.btnCancelarVenta.TabIndex = 12;
             this.btnCancelarVenta.Text = "Cancelar Venta";
             this.btnCancelarVenta.UseVisualStyleBackColor = true;
+            this.btnCancelarVenta.Click += new System.EventHandler(this.btnCancelarVenta_Click);
             // 
             // btnFinalizarVenta
             // 

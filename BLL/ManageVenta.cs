@@ -11,29 +11,50 @@ namespace BLL
     {
         public void RealizarVenta(Venta venta)
         {
-            
+
         }
 
         public double CalcularTotal(Venta venta)
         {
             double total = 0;
-            foreach (Articulo articulo in venta.ListaArticulos)
+            foreach (ItemVenta itemVenta in venta.ListaArticulos)
             {
-                total += articulo.Precio * articulo.Stock;
+                total += itemVenta.Articulo.Precio * itemVenta.Cantidad;
             }
             return total;
         }
 
-        public void AgregarArticuloAVenta(Articulo articulo, int cantidad, Venta venta)
+        public Venta AgregarArticuloAVenta(Articulo articulo, double cantidad, Venta venta)
         {
-            ItemVenta nuevoItem = new ItemVenta
+
+            ItemVenta itemVenta = new ItemVenta
             {
+                IdItemVenta = GenerateItemId(),
                 Cantidad = cantidad,
-                SubTotal = cantidad * articulo.Precio
+                SubTotal = cantidad * articulo.Precio,
+                Articulo = articulo
             };
 
-            venta.ListaArticulos.Add(articulo);
+
+            venta.ListaArticulos.Add(itemVenta);
+
+
+            venta.MontoTotal += itemVenta.SubTotal;
+
+            return venta;
+        }
+        private static int lastItemId = 0;
+
+        private static int GenerateItemId()
+        {
+
+            lastItemId++;
+            return lastItemId;
         }
 
+        public void AgregarItemVenta(ItemVenta itemVenta, Venta venta)
+        {
+            venta.ListaArticulos.Add(itemVenta);
+        }
     }
 }

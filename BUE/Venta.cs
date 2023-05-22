@@ -30,14 +30,17 @@ namespace BUE
             set { _montoTotal = value; }
         }
 
-        private List<Articulo> _listaArticulos = new List<Articulo>();
+        private List<ItemVenta> _listaArticulos = new List<ItemVenta>();
 
-        public List<Articulo> ListaArticulos
+        public List<ItemVenta> ListaArticulos
         {
             get { return _listaArticulos; }
             set { _listaArticulos = value; }
         }
 
-
+        public Venta()
+        {
+            ListaArticulos = new List<ItemVenta>();
+        }
     }
 }

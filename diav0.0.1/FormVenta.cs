@@ -1,4 +1,5 @@
-﻿using BUE;
+﻿using BLL;
+using BUE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,17 @@ namespace diav0._0._1
 {
     public partial class FormVenta : Form
     {
+        private Venta objVenta;
+        private ManageArticulo gestorArticulo;
+        private ManageVenta gestorVenta;
+
         public FormVenta()
         {
             InitializeComponent();
+            objVenta = new Venta();
+            gestorArticulo = new ManageArticulo();
+            gestorVenta = new ManageVenta();
         }
-        Venta objVenta = new Venta();
-        BLL.ManageArticulo gestorArticulo = new BLL.ManageArticulo();
-        BLL.ManageVenta gestorVenta = new BLL.ManageVenta();
 
         private void FormVenta_Load(object sender, EventArgs e)
         {
@@ -28,35 +33,82 @@ namespace diav0._0._1
 
         private void btnIngresarArticulo_Click(object sender, EventArgs e)
         {
+            string idArticulo = txtIdArticulo.Text;
+            int cantidad = int.Parse(txtCantidadArticulos.Text);
 
-            BUE.Articulo objArticulo = new BUE.Articulo();
-            
-            BUE.ItemVenta itemVenta = new BUE.ItemVenta();
-
-            objArticulo = gestorArticulo.ValidarArticulo(txtIdArticulo.Text, int.Parse(txtCantidadArticulos.Text));
-
+            Articulo objArticulo = gestorArticulo.ValidarArticulo(idArticulo, cantidad);
 
             if (objArticulo == null)
             {
-                MessageBox.Show("El articulo no existe");
+                MessageBox.Show("El artículo no existe.");
             }
             else
             {
-                gestorVenta.AgregarArticuloAVenta(objArticulo, int.Parse(txtCantidadArticulos.Text), objVenta);
+                ItemVenta itemVenta = new ItemVenta(cantidad, objArticulo);
+                gestorVenta.AgregarItemVenta(itemVenta, objVenta);
+                ActualizarListBoxArticulos();
             }
-
-            ActualizarListBoxArticulos();
-
         }
+
         private void ActualizarListBoxArticulos()
         {
             lboxArticulos.Items.Clear();
 
-            // Recorrer los items de la venta en curso y mostrarlos en el ListBox
-            foreach (var item in objVenta.ListaArticulos)
+            foreach (ItemVenta itemVenta in objVenta.ListaArticulos)
             {
-                lboxArticulos.Items.Add($"{item.Descripcion} - Cantidad: {txtCantidadArticulos.Text} - Precio Unitario:$ {item.Precio}");
+                int id = itemVenta.Articulo.IdArticulo;
+                string descripcion = itemVenta.Articulo.Descripcion;
+                double cantidad = itemVenta.Cantidad;
+                double precioUnitario = itemVenta.Articulo.Precio;
+                string marca = itemVenta.Articulo.Marca.NombreMarca;
+                lboxArticulos.Items.Add($"Cod: {id} - {descripcion} {marca} - Cantidad: {cantidad} - PU: ${precioUnitario} - PT: ${precioUnitario * cantidad} ");
+
+                ActualizarTotalAPagar();
             }
+        }
+
+        private void ActualizarTotalAPagar()
+        {
+            double totalAPagar = gestorVenta.CalcularTotal(objVenta);
+            lblTotalAPagar.Text = totalAPagar.ToString();
+        }
+
+        private void btnEliminarArticulo_Click(object sender, EventArgs e)
+        {
+            
+            if (lboxArticulos.SelectedItem != null)
+            {
+
+                int indiceSeleccionado = lboxArticulos.SelectedIndex;
+
+                objVenta.ListaArticulos.RemoveAt(indiceSeleccionado);
+
+                ActualizarListBoxArticulos();
+                ActualizarTotalAPagar();
+            }
+            else
+            {
+                MessageBox.Show("No selecciono ningun producto de la lista");
+            }
+            
+        }
+
+        private void btnCancelarVenta_Click(object sender, EventArgs e)
+        {
+            objVenta.ListaArticulos.Clear();
+
+
+            lboxArticulos.Items.Clear();
+
+
+            lblTotalAPagar.Text = "0";
+
+
+            txtCantidadArticulos.Text = "";
+            txtIdArticulo.Text = "";
+
+
+            MessageBox.Show("Venta cancelada");
         }
     }
 }
