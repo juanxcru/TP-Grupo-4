@@ -21,5 +21,11 @@ namespace diav0._0._1
         {
 
         }
+
+        private void btnCrearArticulo_Click(object sender, EventArgs e)
+        {
+            crearArticulo objCrearArticulo = new crearArticulo();
+            objCrearArticulo.ShowDialog();
+        }
     }
 }

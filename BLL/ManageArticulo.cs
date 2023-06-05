@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,16 @@ namespace BLL
         public ManageArticulo()
         {
             articuloDAL = new ArticuloDAL();
+        }
+
+        public DataTable cargarCategoria()
+        {
+            return articuloDAL.cargarCategoria();
+        }
+
+        public DataTable cargarMarcas()
+        {
+            return articuloDAL.cargarMarcas();
         }
 
         public Articulo ValidarArticulo(string idArticulo, int cantidad)

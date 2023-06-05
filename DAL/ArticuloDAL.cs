@@ -10,6 +10,22 @@ namespace DAL
 {
     public class ArticuloDAL
     {
+        public DataTable cargarCategoria()
+        {
+            Conexion objConexion = new Conexion();
+            string sp_cargarCategorias = "sp_cargarCategorias";
+            DataTable categorias = objConexion.LeerPorStoreProcedure(sp_cargarCategorias);
+            return categorias;
+        }
+
+        public DataTable cargarMarcas()
+        {
+            Conexion objConexion = new Conexion();
+            string sp_cargarMarca = "sp_cargarMarca";
+            DataTable marcas = objConexion.LeerPorStoreProcedure(sp_cargarMarca);
+            return marcas;
+        }
+
         public BUE.Articulo ValidarArticulo(string idArticulo, int cantidad)
         {
             string usuarioStoreProcedure = "sp_validar_articulo";
