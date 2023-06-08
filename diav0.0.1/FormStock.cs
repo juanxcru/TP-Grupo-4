@@ -30,8 +30,20 @@ namespace diav0._0._1
 
         private void btnGenerarAlerta_Click(object sender, EventArgs e)
         {
-            frmGenerarAlerta objGenerarAlerta = new frmGenerarAlerta(); 
+            FormGenerarAlerta objGenerarAlerta = new FormGenerarAlerta(); 
             objGenerarAlerta.ShowDialog();
+        }
+
+        private void btnModificarArticulo_Click(object sender, EventArgs e)
+        {
+            FormModificarArticulo objModificarArticulo = new FormModificarArticulo();
+            objModificarArticulo.ShowDialog();
+        }
+
+        private void btnGestionarStock_Click(object sender, EventArgs e)
+        {
+            FormGestionarStock formGestionarStock = new FormGestionarStock();
+            formGestionarStock.ShowDialog();
         }
     }
 }

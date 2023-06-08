@@ -66,6 +66,7 @@
             this.btnModificarArticulo.TabIndex = 6;
             this.btnModificarArticulo.Text = "Modificar Artículo";
             this.btnModificarArticulo.UseVisualStyleBackColor = true;
+            this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
             // 
             // btnGestionarStock
             // 
@@ -76,6 +77,7 @@
             this.btnGestionarStock.TabIndex = 7;
             this.btnGestionarStock.Text = "Gestionar Stock";
             this.btnGestionarStock.UseVisualStyleBackColor = true;
+            this.btnGestionarStock.Click += new System.EventHandler(this.btnGestionarStock_Click);
             // 
             // btnGenerarAlerta
             // 

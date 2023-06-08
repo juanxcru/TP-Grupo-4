@@ -13,6 +13,21 @@ namespace BLL
     {
         DAL.DALRepositor objRepositor = new DAL.DALRepositor();
 
+        public DataTable buscarArticulo(Articulo _descripcionArticulo)
+        {            
+            return objRepositor.buscarArticulos(_descripcionArticulo); ;
+        }
+
+        public DataTable buscarArticuloACargar(Articulo _descripcionArticulo)
+        {
+            return objRepositor.buscarArticulosACargar(_descripcionArticulo); ;
+        }
+
+        public void cargarStock(Articulo objBUEArticulo, int nudStockNuevo)
+        {
+            objRepositor.cargaStock(objBUEArticulo,nudStockNuevo);
+        }
+
         public void crearArticulo(Articulo objBUEArticulo, Categoria objBUECategoria, Marca objBUEMarca)
         {
             objRepositor.crearArticulo(objBUEArticulo, objBUECategoria, objBUEMarca);

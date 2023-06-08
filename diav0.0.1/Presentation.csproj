@@ -52,6 +52,18 @@
     <Compile Include="crearArticulo.Designer.cs">
       <DependentUpon>crearArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGestionarStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestionarStock.Designer.cs">
+      <DependentUpon>FormGestionarStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModificarArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModificarArticulo.Designer.cs">
+      <DependentUpon>FormModificarArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,16 +100,22 @@
     <Compile Include="FormVenta.Designer.cs">
       <DependentUpon>FormVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGenerarAlerta.cs">
+    <Compile Include="FormGenerarAlerta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGenerarAlerta.Designer.cs">
-      <DependentUpon>frmGenerarAlerta.cs</DependentUpon>
+    <Compile Include="FormGenerarAlerta.Designer.cs">
+      <DependentUpon>FormGenerarAlerta.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="crearArticulo.resx">
       <DependentUpon>crearArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGestionarStock.resx">
+      <DependentUpon>FormGestionarStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModificarArticulo.resx">
+      <DependentUpon>FormModificarArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStock.resx">
       <DependentUpon>FormStock.cs</DependentUpon>
@@ -117,8 +135,8 @@
     <EmbeddedResource Include="FormVenta.resx">
       <DependentUpon>FormVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGenerarAlerta.resx">
-      <DependentUpon>frmGenerarAlerta.cs</DependentUpon>
+    <EmbeddedResource Include="FormGenerarAlerta.resx">
+      <DependentUpon>FormGenerarAlerta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

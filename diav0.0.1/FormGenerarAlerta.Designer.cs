@@ -1,6 +1,6 @@
 ﻿namespace diav0._0._1
 {
-    partial class frmGenerarAlerta
+    partial class FormGenerarAlerta
     {
         /// <summary>
         /// Required designer variable.
@@ -55,15 +55,16 @@
             this.btnGenerarAlerta.UseVisualStyleBackColor = true;
             this.btnGenerarAlerta.Click += new System.EventHandler(this.btnGenerarAlerta_Click);
             // 
-            // frmGenerarAlerta
+            // FrmGenerarAlerta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnGenerarAlerta);
             this.Controls.Add(this.dgvGenerarAlerta);
-            this.Name = "frmGenerarAlerta";
+            this.Name = "FrmGenerarAlerta";
             this.Text = "frmGenerarAlerta";
+            this.Load += new System.EventHandler(this.FrmGenerarAlerta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerarAlerta)).EndInit();
             this.ResumeLayout(false);
 

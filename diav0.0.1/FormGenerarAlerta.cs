@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace diav0._0._1
 {
-    public partial class frmGenerarAlerta : Form
+    public partial class FormGenerarAlerta : Form
     {
-        public frmGenerarAlerta()
+        public FormGenerarAlerta()
         {
             InitializeComponent();
         }
@@ -22,6 +22,11 @@ namespace diav0._0._1
         {
             BLLRepositor objRepositor = new BLLRepositor();
             dgvGenerarAlerta.DataSource= objRepositor.generarAlerta();
+        }
+
+        private void FrmGenerarAlerta_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

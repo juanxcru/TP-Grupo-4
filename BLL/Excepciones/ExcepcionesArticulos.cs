@@ -8,22 +8,19 @@ namespace BLL.Excepciones
 {
     public class ExcepcionesArticulos : Exception
     {
-        public static void verificarCamposCargaArtculo(string _descripcion, int _categoria, int _marca, int _precio, int _cantidad)
-        //public static void verificarCamposCargaArtculo(string _descripcion, string _categoria, string _marca, int _precio, int _cantidad)
+        public static void verificarCamposCargaArtculo(string _descripcion, int _categoria, int _marca, double _precio, double _cantidad)
         {
             //Descripcion
             if (string.IsNullOrEmpty(_descripcion)) {
                 throw new Exception("Debe ingresar una descripción.");
             }
             //Categoria
-            //if (string.IsNullOrEmpty(_categoria))
-            if (_categoria == 1)
+            if (_categoria == 0)
             {
                 throw new Exception("Debe ingresar una categoria.");
             }
             //Marca
-            //if (string.IsNullOrEmpty(_marca))
-            if (_marca == 1)
+            if (_marca == 0)
             {
                 throw new Exception("Debe ingresar una marca.");
             }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace diav0._0._1
 {
@@ -39,12 +40,12 @@ namespace diav0._0._1
             dgvArticulos.DataSource = objBLLArticulo.listarArticulos();
 
             //Cargo Categoria            
-            cmbCategoria.DataSource = objBLLCategoria.listarCategoria();
+            cmbCategoria.DataSource = objBLLCategoria.listarCategoria();            
             cmbCategoria.DisplayMember = "detalle";
             cmbCategoria.ValueMember = "id_categoria";
-                        
-            //Cargo Marcas
-            cmbMarca.DataSource = objBLLMarcas.listarMarcas();
+
+            //Cargo Marcas                        
+            cmbMarca.DataSource = objBLLMarcas.listarMarcas();            
             cmbMarca.DisplayMember = "nombre_marca";
             cmbMarca.ValueMember = "id_marca";
 
@@ -59,13 +60,9 @@ namespace diav0._0._1
         {
             int idCategoria = Convert.ToInt32(cmbCategoria.SelectedValue);
             int idMarca = Convert.ToInt32(cmbMarca.SelectedValue);
-            //BLL.Excepciones.ExcepcionesArticulos.verificarCamposCargaArtculo(txtDescripcion.Text, cmbCategoria.Text, cmbMarca.Text, int.Parse(nudPrecio.Text), int.Parse(nudCantidad.Text));
             try
             {
-                BLL.Excepciones.ExcepcionesArticulos.verificarCamposCargaArtculo(txtDescripcion.Text, idCategoria, idMarca, int.Parse(nudPrecio.Text), int.Parse(nudCantidad.Text));
-                //BLL.Excepciones.ExcepcionesArticulos.verificarCamposCargaArtculo(txtDescripcion.Text, (string)cmbCategoria.SelectedValue, (string)cmbMarca.SelectedValue, int.Parse(nudPrecio.Text), int.Parse(nudCantidad.Text));
-                //Tengo que instanciar articulo, marca y categoria para pasarle los parametro al metodo CrearArticulo del Repositor
-                //Articulo
+                BLL.Excepciones.ExcepcionesArticulos.verificarCamposCargaArtculo(txtDescripcion.Text, idCategoria, idMarca, double.Parse(nudPrecio.Text), double.Parse(nudCantidad.Text));
                 //Descripcion
                 objBUEArticulo.Descripcion = txtDescripcion.Text;
                 //Precio
