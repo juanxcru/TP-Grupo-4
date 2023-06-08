@@ -27,5 +27,11 @@ namespace diav0._0._1
             crearArticulo objCrearArticulo = new crearArticulo();
             objCrearArticulo.ShowDialog();
         }
+
+        private void btnGenerarAlerta_Click(object sender, EventArgs e)
+        {
+            frmGenerarAlerta objGenerarAlerta = new frmGenerarAlerta(); 
+            objGenerarAlerta.ShowDialog();
+        }
     }
 }

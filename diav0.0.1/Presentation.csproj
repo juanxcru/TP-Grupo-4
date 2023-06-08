@@ -88,6 +88,12 @@
     <Compile Include="FormVenta.Designer.cs">
       <DependentUpon>FormVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGenerarAlerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerarAlerta.Designer.cs">
+      <DependentUpon>frmGenerarAlerta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="crearArticulo.resx">
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormVenta.resx">
       <DependentUpon>FormVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerarAlerta.resx">
+      <DependentUpon>frmGenerarAlerta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

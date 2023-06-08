@@ -86,6 +86,7 @@
             this.btnGenerarAlerta.TabIndex = 8;
             this.btnGenerarAlerta.Text = "Generar Alerta";
             this.btnGenerarAlerta.UseVisualStyleBackColor = true;
+            this.btnGenerarAlerta.Click += new System.EventHandler(this.btnGenerarAlerta_Click);
             // 
             // FormStock
             // 
@@ -97,7 +98,7 @@
             this.Controls.Add(this.btnModificarArticulo);
             this.Controls.Add(this.btnCrearArticulo);
             this.Controls.Add(this.reports);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormStock";
             this.Text = "Stock";
             this.ResumeLayout(false);

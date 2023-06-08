@@ -53,6 +53,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(233, 20);
             this.txtDescripcion.TabIndex = 0;
+            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // contextMenuStrip1
             // 
@@ -61,6 +62,7 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(263, 67);
             this.cmbCategoria.Name = "cmbCategoria";
@@ -69,6 +71,7 @@
             // 
             // cmbMarca
             // 
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(390, 68);
             this.cmbMarca.Name = "cmbMarca";
@@ -91,6 +94,7 @@
             // 
             // dgvArticulos
             // 
+            this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(24, 123);
             this.dgvArticulos.Name = "dgvArticulos";
@@ -105,6 +109,7 @@
             this.btnCrearArticulo.TabIndex = 7;
             this.btnCrearArticulo.Text = "Crear Articulo";
             this.btnCrearArticulo.UseVisualStyleBackColor = true;
+            this.btnCrearArticulo.Click += new System.EventHandler(this.btnCrearArticulo_Click);
             // 
             // label1
             // 
@@ -118,7 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(300, 51);
+            this.label2.Location = new System.Drawing.Point(283, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 9;

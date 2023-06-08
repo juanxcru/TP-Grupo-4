@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,7 +11,7 @@ namespace DAL
 {
     public class ArticuloDAL
     {
-        public DataTable cargarCategoria()
+        public DataTable zcargarCategoria()
         {
             Conexion objConexion = new Conexion();
             string sp_cargarCategorias = "sp_cargarCategorias";
@@ -24,6 +25,30 @@ namespace DAL
             string sp_cargarMarca = "sp_cargarMarca";
             DataTable marcas = objConexion.LeerPorStoreProcedure(sp_cargarMarca);
             return marcas;
+        }
+
+        public void crearArticulo(Articulo objBUEArticulo)
+        {
+            //Conexion objConexion = new Conexion();
+            //SqlParameter[] parametros = new SqlParameter[5];
+
+            /*parametros[0] = objConexion.crearParametro("@pCategoria", objBUEArticulo.Categoria);
+            parametros[1] = objConexion.crearParametro("@pMarca", objBUEArticulo.Marca);*/
+            //parametros[0] = objConexion.crearParametro("@pCategoria", 2);
+            //parametros[1] = objConexion.crearParametro("@pMarca", 2);
+            //parametros[2] = objConexion.crearParametro("@pDescripcion", objBUEArticulo.Descripcion);
+            //parametros[3] = objConexion.crearParametro("@pPrecio", objBUEArticulo.Precio);
+            //parametros[4] = objConexion.crearParametro("@pStock", objBUEArticulo.Stock);
+            //Al devolver filar afectadas, se puede usar para la excepcion
+            //objConexion.LeerPorStoreProcedure("sp_CrearArticulo", parametros);
+        }
+
+        public DataTable listarArticulos()
+        {
+            Conexion objConexion = new Conexion();
+            DataTable dt = objConexion.LeerPorStoreProcedure("sp_listarArticulos");
+
+            return dt;
         }
 
         public BUE.Articulo ValidarArticulo(string idArticulo, int cantidad)
@@ -51,6 +76,15 @@ namespace DAL
             articuloDeRetorno.Marca = marca;
 
             return articuloDeRetorno;
+        }
+        public List<Articulo> listarCategorias()
+        {
+           /* Conexion objConexion = new Conexion();
+            string sp_cargarCategorias = "sp_cargarCategorias";
+            List<Articulo> categorias = new List<Articulo>();
+            DataTable categorias = objConexion.LeerPorStoreProcedure(sp_cargarCategorias);
+            categorias = objConexion.LeerPorStoreProcedure(sp_cargarCategorias).ToString();*/
+            return null;
         }
     }
 }

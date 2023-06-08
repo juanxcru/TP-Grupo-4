@@ -10,17 +10,16 @@ using System.Threading.Tasks;
 namespace BLL
 {
     public class ManageArticulo
-    {
-        private ArticuloDAL articuloDAL;
-
+    {      
         public ManageArticulo()
         {
-            articuloDAL = new ArticuloDAL();
+            
         }
-
-        public DataTable cargarCategoria()
+        ArticuloDAL articuloDAL = new ArticuloDAL();
+        public List<Articulo> listarCategoria()
         {
-            return articuloDAL.cargarCategoria();
+            //return articuloDAL.cargarCategoria();
+            return articuloDAL.listarCategorias();
         }
 
         public DataTable cargarMarcas()
@@ -36,6 +35,11 @@ namespace BLL
             }
 
             return articuloDAL.ValidarArticulo(idArticulo, cantidad);
+        }
+
+        public DataTable listarArticulos()
+        {
+            return articuloDAL.listarArticulos();
         }
     }
 }
