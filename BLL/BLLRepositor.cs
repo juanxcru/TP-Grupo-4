@@ -37,5 +37,10 @@ namespace BLL
         {
            return objRepositor.generarAlerta();
         }
+
+        public void modificarArticulo(Articulo objBUEArticulo, Categoria objBUECategoria, Marca objBUEMarca)
+        {
+            objRepositor.modificarArticulo(objBUEArticulo, objBUECategoria, objBUEMarca);
+        }
     }
 }

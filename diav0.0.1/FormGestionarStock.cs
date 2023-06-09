@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BUE;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,18 +41,30 @@ namespace diav0._0._1
 
         private void btnCargarStock_Click(object sender, EventArgs e)
         {
-            objBUEArticulo.IdArticulo = int.Parse(txtId.Text);
-            objBLLRepositor.cargarStock(objBUEArticulo, int.Parse(nudStockNuevo.Text));
-            dgvGestionarStock.DataSource = objBLLRepositor.buscarArticuloACargar(objBUEArticulo);
-            
-            //Limpiar campos
-            txtDescripcionBuscar.Text = "";
-            txtId.Text = "";
-            txtDescripcion.Text = "";
-            txtCategoria.Text = "";
-            txtMarca.Text = "";
-            txtStock.Text = "";
-            nudStockNuevo.Text = "";
+            try
+            {
+                //Excepciones
+                BLL.Excepciones.ExcepcionesArticulos.verificarCamposCargarStock(txtId.Text, int.Parse(nudStockNuevo.Text));
+                
+                //Busco articulos para cargar Stock
+                objBUEArticulo.IdArticulo = int.Parse(txtId.Text);
+                objBLLRepositor.cargarStock(objBUEArticulo, int.Parse(nudStockNuevo.Text));
+                dgvGestionarStock.DataSource = objBLLRepositor.buscarArticuloACargar(objBUEArticulo);
+
+                //Limpiar campos
+                txtDescripcionBuscar.Text = "";
+                txtId.Text = "";
+                txtDescripcion.Text = "";
+                txtCategoria.Text = "";
+                txtMarca.Text = "";
+                txtStock.Text = "";
+                nudStockNuevo.Text = "";
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -67,5 +67,33 @@ namespace DAL
 
             return dt;
         }
+
+        public void modificarArticulo(Articulo objBUEArticulo, Categoria objBUECategoria, Marca objBUEMarca)
+        {
+            Conexion objConexion = new Conexion();
+            SqlParameter[] parametros = new SqlParameter[5];
+
+            parametros[0] = objConexion.crearParametro("@pIdArticulo", objBUEArticulo.IdArticulo);
+            parametros[1] = objConexion.crearParametro("@pCategoria", objBUECategoria.IdCategoria);
+            parametros[2] = objConexion.crearParametro("@pMarca", objBUEMarca.IdMarca);
+            parametros[3] = objConexion.crearParametro("@pDescripcion", objBUEArticulo.Descripcion);
+            parametros[4] = objConexion.crearParametro("@pPrecio", objBUEArticulo.Precio);
+
+            //Al devolver filar afectadas, se puede usar para la excepcion
+            objConexion.LeerPorStoreProcedure("sp_modificarArticulo", parametros);
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

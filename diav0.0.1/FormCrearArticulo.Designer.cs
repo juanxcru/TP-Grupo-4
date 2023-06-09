@@ -1,6 +1,6 @@
 ﻿namespace diav0._0._1
 {
-    partial class crearArticulo
+    partial class FormCrearArticulo
     {
         /// <summary>
         /// Required designer variable.

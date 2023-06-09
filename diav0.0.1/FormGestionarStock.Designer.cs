@@ -31,9 +31,9 @@
             this.dgvGestionarStock = new System.Windows.Forms.DataGridView();
             this.btnCargarStock = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtDescripcionBuscar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDescripcionBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -83,12 +83,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Articulo";
             // 
-            // txtDescripcionBuscar
+            // btnBuscar
             // 
-            this.txtDescripcionBuscar.Location = new System.Drawing.Point(75, 30);
-            this.txtDescripcionBuscar.Name = "txtDescripcionBuscar";
-            this.txtDescripcionBuscar.Size = new System.Drawing.Size(279, 20);
-            this.txtDescripcionBuscar.TabIndex = 0;
+            this.btnBuscar.Location = new System.Drawing.Point(375, 27);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(93, 23);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label1
             // 
@@ -99,15 +102,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Descripción";
             // 
-            // btnBuscar
+            // txtDescripcionBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(375, 27);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(93, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.txtDescripcionBuscar.Location = new System.Drawing.Point(75, 30);
+            this.txtDescripcionBuscar.Name = "txtDescripcionBuscar";
+            this.txtDescripcionBuscar.Size = new System.Drawing.Size(279, 20);
+            this.txtDescripcionBuscar.TabIndex = 0;
             // 
             // label2
             // 
@@ -121,9 +121,9 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(15, 106);
+            this.txtId.Location = new System.Drawing.Point(12, 106);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(81, 20);
+            this.txtId.Size = new System.Drawing.Size(84, 20);
             this.txtId.TabIndex = 4;
             // 
             // txtDescripcion

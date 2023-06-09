@@ -12,9 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace diav0._0._1
 {
-    public partial class crearArticulo : Form
+    public partial class FormCrearArticulo : Form
     {        
-        public crearArticulo()
+        public FormCrearArticulo()
         {
             InitializeComponent();
         }                
@@ -62,7 +62,8 @@ namespace diav0._0._1
             int idMarca = Convert.ToInt32(cmbMarca.SelectedValue);
             try
             {
-                BLL.Excepciones.ExcepcionesArticulos.verificarCamposCargaArtculo(txtDescripcion.Text, idCategoria, idMarca, double.Parse(nudPrecio.Text), double.Parse(nudCantidad.Text));
+                //Excepciones
+                BLL.Excepciones.ExcepcionesArticulos.verificarCamposCargaArticulo(txtDescripcion.Text, idCategoria, idMarca, double.Parse(nudPrecio.Text), double.Parse(nudCantidad.Text));
                 //Descripcion
                 objBUEArticulo.Descripcion = txtDescripcion.Text;
                 //Precio
@@ -75,14 +76,7 @@ namespace diav0._0._1
                 objBUEMarca.IdMarca = idMarca;
 
                 //Ejecuto metodo de creacion de Articulo
-                try
-                {
-                    objBLLRepositor.crearArticulo(objBUEArticulo, objBUECategoria, objBUEMarca);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                objBLLRepositor.crearArticulo(objBUEArticulo, objBUECategoria, objBUEMarca);
 
                 //Limpio campos
                 txtDescripcion.Text = "";
