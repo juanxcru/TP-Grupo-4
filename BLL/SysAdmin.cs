@@ -9,7 +9,24 @@ namespace BLL
     public class SysAdmin : Usuario
     {
 
-        //caracteristicas propias y
-        //comportamientos que hacen los sysadmin
+        /// <summary>
+        /// Crea al usuario en la base de datos
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        public bool CrearUsuario(BUE.Usuario usuario)
+        {
+           
+            
+           return true;
+        }
+        /// <summary>
+        /// Lista a los usuarios que estan en la base
+        /// </summary>
+        /// <returns></returns>
+        public List<BUE.Usuario> Usuarios()
+        {
+            return null;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -40,6 +41,49 @@ namespace DAL
 
 
             return usuarioDeRetorno;
+        }
+
+        /// <summary>
+        /// Damos de alta un usuario en el programa y devuelve el usuario creado
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nombreUsuario"></param>
+        /// <param name="contraseña"></param>
+        /// <param name="perfil"></param>
+        /// <returns></returns>
+        public BUE.Usuario CrearUsuario(string nombre, string apellido, int dni, string nombreUsuario, string contraseña, int perfil)
+        {
+            string usuarioStoreProcedure = "sp_alta_usuario";
+            SqlParameter[] parametros = new SqlParameter[5];
+            Conexion objConexion = new Conexion();
+            parametros[0] = objConexion.crearParametro("@username", nombreUsuario);
+            parametros[1] = objConexion.crearParametro("@password", contraseña);
+            parametros[2] = objConexion.crearParametro("@nombre", nombre);
+            parametros[3] = objConexion.crearParametro("@apellido", apellido);
+            parametros[4] = objConexion.crearParametro("@id_perfil", perfil);
+
+            // Ejecutar el procedimiento almacenado para crear el usuario
+            int filasAfectadas = objConexion.EscribirPorStoreProcedure(usuarioStoreProcedure, parametros);
+
+            if (filasAfectadas > 0)
+            {
+                // Si se creó el usuario correctamente, retornar el objeto Usuario creado
+                BUE.Usuario usuarioCreado = new BUE.Usuario();
+                usuarioCreado.UserName = nombreUsuario;
+                usuarioCreado.Password = contraseña;
+                usuarioCreado.Perfil = new BUE.Perfil();
+                usuarioCreado.Perfil.ID = perfil;
+
+                return usuarioCreado;
+            }
+            else
+            {
+                // Si no se creó el usuario correctamente, retornar null o lanzar una excepción
+                return null;
+            }
+
         }
 
     }
