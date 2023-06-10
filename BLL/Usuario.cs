@@ -27,12 +27,11 @@ namespace BLL
             }
 
 
-            DAL.Usuario dalUsuario = new DAL.Usuario();
+            DAL.UsuarioDAL dalUsuario = new DAL.UsuarioDAL();
 
 
             return dalUsuario.ValidarUsuario(nombreUsuario,password);
         }
-
 
     }
 }

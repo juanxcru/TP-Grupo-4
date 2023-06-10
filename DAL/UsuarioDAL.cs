@@ -10,7 +10,7 @@ using System.Web;
 
 namespace DAL
 {
-    public class Usuario
+    public class UsuarioDAL
     {
         /// <summary>
         /// Invocamos al store procedure que devuelve un DataTable, instanciamos un objeto de negocio y lo poblamos
@@ -56,13 +56,14 @@ namespace DAL
         public BUE.Usuario CrearUsuario(string nombre, string apellido, int dni, string nombreUsuario, string contraseña, int perfil)
         {
             string usuarioStoreProcedure = "sp_alta_usuario";
-            SqlParameter[] parametros = new SqlParameter[5];
+            SqlParameter[] parametros = new SqlParameter[6];
             Conexion objConexion = new Conexion();
             parametros[0] = objConexion.crearParametro("@username", nombreUsuario);
             parametros[1] = objConexion.crearParametro("@password", contraseña);
             parametros[2] = objConexion.crearParametro("@nombre", nombre);
             parametros[3] = objConexion.crearParametro("@apellido", apellido);
             parametros[4] = objConexion.crearParametro("@id_perfil", perfil);
+            parametros[5] = objConexion.crearParametro("@dni_empleado", dni);
 
             // Ejecutar el procedimiento almacenado para crear el usuario
             int filasAfectadas = objConexion.EscribirPorStoreProcedure(usuarioStoreProcedure, parametros);
@@ -84,6 +85,20 @@ namespace DAL
                 return null;
             }
 
+        }
+
+        /// <summary>
+        /// Devuelve un DataTable con la información cruzada entre las tablas:
+        /// EMPLEADO + USUARIO + PERFIL
+        /// </summary>
+        /// <returns></returns>
+        public DataTable ActualizarTabla()
+        {
+            Conexion objConexion = new Conexion();
+
+            DataTable dt = objConexion.LeerPorStoreProcedure("sp_merge_usuarios");
+
+            return dt;
         }
 
     }
