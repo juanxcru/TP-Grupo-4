@@ -66,5 +66,17 @@ namespace diav0._0._1
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            //Limpiar campos
+            txtDescripcionBuscar.Text = "";
+            txtId.Text = "";
+            txtDescripcion.Text = "";
+            txtCategoria.Text = "";
+            txtMarca.Text = "";
+            txtStock.Text = "";
+            nudStockNuevo.Text = "";
+        }
     }
 }

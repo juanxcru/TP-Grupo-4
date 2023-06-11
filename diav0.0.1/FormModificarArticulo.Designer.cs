@@ -50,6 +50,7 @@
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.btnLimpiarCampos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNuevoPrecio)).BeginInit();
@@ -261,11 +262,22 @@
             this.txtPrecio.Size = new System.Drawing.Size(126, 20);
             this.txtPrecio.TabIndex = 22;
             // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(70, 374);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(93, 37);
+            this.btnLimpiarCampos.TabIndex = 23;
+            this.btnLimpiarCampos.Text = "Limpiar Campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
             // FormModificarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.txtCategoria);
@@ -321,5 +333,6 @@
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.Button btnLimpiarCampos;
     }
 }

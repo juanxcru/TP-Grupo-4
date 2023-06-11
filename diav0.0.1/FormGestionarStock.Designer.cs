@@ -46,6 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.nudStockNuevo = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnLimpiarCampos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGestionarStock)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockNuevo)).BeginInit();
@@ -218,11 +219,22 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Stock a cargar";
             // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(701, 222);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(87, 45);
+            this.btnLimpiarCampos.TabIndex = 15;
+            this.btnLimpiarCampos.Text = "Limpiar Campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
             // FormGestionarStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nudStockNuevo);
             this.Controls.Add(this.label6);
@@ -269,5 +281,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown nudStockNuevo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnLimpiarCampos;
     }
 }
