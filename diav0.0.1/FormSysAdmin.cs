@@ -79,7 +79,7 @@ namespace diav0._0._1
         {
             List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaDeUsuarios = gestorUsuario.ObtenerListaUsuarios();
 
-            GridUsuarios.DataSource = null;
+            GridUsuarios.Rows.Clear();
 
             var combobox = (DataGridViewComboBoxColumn)GridUsuarios.Columns["Rol"];
             combobox.DisplayMember = "Descripcion"; // Nombre de la propiedad para mostrar en el DropDownList
@@ -137,7 +137,27 @@ namespace diav0._0._1
             return listaPerfiles;
         }
 
+        /// <summary>
+        /// Creo un usuario a partir de la fila seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            gestionarUsuario(1);
+        }
+
+        private void btnEditarUsuario_Click(object sender, EventArgs e)
+        {
+            gestionarUsuario(2);
+        }
+
+        private void btnBajaUsuario_Click(object sender, EventArgs e)
+        {
+            gestionarUsuario(3);
+        }
+
+        private void gestionarUsuario(int accion)
         {
             DataGridViewRow selectedRow = GridUsuarios.SelectedRows[0];
 
@@ -149,31 +169,58 @@ namespace diav0._0._1
             string username = selectedRow.Cells["Username"].Value.ToString();
             int rol = Convert.ToInt32(selectedRow.Cells["Rol"].Value);
 
-            // Generar una contraseña aleatoria
-            string password = GenerarContraseñaAleatoria();
+            int resultado = 0;
+            string mensaje = "";
+            string password = "";
 
-            // Crear el usuario y obtener el resultado
-            int resultado = gestorUsuario.CrearUsuario(username, password, nombre, apellido, rol, dni);
+            if (accion == 1)
+            {
+                // Generar una contraseña aleatoria
+                password = GenerarContraseñaAleatoria();
+
+                // Crear el usuario y obtener el resultado
+                resultado = gestorUsuario.CrearUsuario(username, password, nombre, apellido, rol, dni);
+            }
+            else if (accion == 2)
+            {
+                // Modificar el usuario y obtener el resultado
+                resultado = gestorUsuario.EditarUsuario(idEmpleado, username, nombre, apellido, rol, dni);
+            }
+            else if (accion == 3)
+            {
+                // Eliminaru usuario y obtener su resultado
+                resultado = gestorUsuario.BajaUsuario(idEmpleado);
+            }
 
             // Mostrar el mensaje correspondiente según el resultado
-            string mensaje;
             if (resultado == 1)
             {
-                mensaje = "Username repetido";
+                mensaje = "Username repetido. Intente nuevamente.";
             }
             else if (resultado == 2)
             {
-                mensaje = "DNI repetido";
+                mensaje = "DNI repetido. Intente nuevamente.";
+            }
+            else if (resultado == 0)
+            {
+                if (accion == 1)
+                    mensaje = "Usuario creado con éxito. Contraseña generada: " + password;
+                if (accion == 2)
+                    mensaje = "Usuario modificado con éxito.";
+                if (accion == 3)
+                    mensaje = "Usuario eliminado con éxito" + password;
             }
             else
             {
-                mensaje = "Usuario creado con éxito. Contraseña generada: " + password;
+                mensaje = "Hubo un error";
             }
 
             // Mostrar el cartel con la información de la fila afectada y el mensaje
             MessageFilaAfectada(selectedRow, mensaje);
             ActualizarTabla();
         }
+
+        
     }
 
 }

@@ -27,7 +27,7 @@ namespace BLL
         {
             UsuarioDAL userIngresado = new UsuarioDAL();
 
-            int rep = userIngresado.usuarioRepetido(nombreUsuario, dni);
+            int rep = userIngresado.usuarioRepetido(0, nombreUsuario, dni);
 
             switch (rep)
             {
@@ -38,6 +38,33 @@ namespace BLL
             userIngresado.CrearUsuario(nombreUsuario, password, nombre, apellido, perfil, dni);
 
             return 0;
+        }
+
+        public int EditarUsuario(int IDEmpleado, string nombreUsuario, string nombre, string apellido, int perfil, int dni)
+        {
+            UsuarioDAL userIngresado = new UsuarioDAL();
+
+            int rep = userIngresado.usuarioRepetido(IDEmpleado, nombreUsuario, dni);
+
+            switch (rep)
+            {
+                case 1: return 1;
+                case 2: return 2;
+            }
+
+            userIngresado.EditarUsuario(IDEmpleado, nombreUsuario, nombre, apellido, perfil, dni);
+
+            return 0;
+        }
+
+        public int BajaUsuario(int IDEmpleado)
+        {
+            UsuarioDAL userIngresado = new UsuarioDAL();
+
+            userIngresado.BajaUsuario(IDEmpleado);
+
+            return 0;
+
         }
 
         /// <summary>

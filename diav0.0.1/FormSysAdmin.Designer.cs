@@ -35,9 +35,9 @@ namespace diav0._0._1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSysAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnBajaUsuario = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -131,6 +131,7 @@ namespace diav0._0._1
             this.btnBajaUsuario.TabIndex = 21;
             this.btnBajaUsuario.Text = "Eliminar";
             this.btnBajaUsuario.UseVisualStyleBackColor = false;
+            this.btnBajaUsuario.Click += new System.EventHandler(this.btnBajaUsuario_Click);
             // 
             // panel9
             // 
@@ -154,8 +155,9 @@ namespace diav0._0._1
             this.btnEditarUsuario.Name = "btnEditarUsuario";
             this.btnEditarUsuario.Size = new System.Drawing.Size(197, 31);
             this.btnEditarUsuario.TabIndex = 19;
-            this.btnEditarUsuario.Text = "Guardar";
+            this.btnEditarUsuario.Text = "Editar";
             this.btnEditarUsuario.UseVisualStyleBackColor = false;
+            this.btnEditarUsuario.Click += new System.EventHandler(this.btnEditarUsuario_Click);
             // 
             // panel8
             // 
@@ -355,14 +357,14 @@ namespace diav0._0._1
             this.GridUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
             this.GridUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.GridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdEmpleado,
@@ -375,16 +377,16 @@ namespace diav0._0._1
             this.GridUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridUsuarios.Location = new System.Drawing.Point(62, 177);
             this.GridUsuarios.Name = "GridUsuarios";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.GridUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.GridUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.GridUsuarios.RowTemplate.Height = 27;
             this.GridUsuarios.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.GridUsuarios.Size = new System.Drawing.Size(698, 265);

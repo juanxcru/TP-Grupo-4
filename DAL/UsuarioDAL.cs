@@ -70,13 +70,59 @@ namespace DAL
 
             if (filasAfectadas > 0)
             {
-                // Si se creó el usuario correctamente, retornar el objeto Usuario creado
-                BUE.Usuario usuarioCreado = new BUE.Usuario();
-                usuarioCreado.UserName = nombreUsuario;
-                usuarioCreado.Password = password;
-                usuarioCreado.Perfil = new BUE.Perfil();
-                usuarioCreado.Perfil.ID = perfil;
+                // Si se creó el usuario correctamente, retornar true
+                return true;
+            }
+            else
+            {
+                // Si no se creó el usuario correctamente, retornar false o lanzar una excepción
+                return false;
+            }
 
+        }
+
+
+        public bool EditarUsuario(int IDEmpleado, string nombreUsuario, string nombre, string apellido, int perfil, int dni)
+        {
+            string usuarioStoreProcedure = "sp_modificar_usuario";
+            SqlParameter[] parametros = new SqlParameter[6];
+            Conexion objConexion = new Conexion();
+            parametros[0] = objConexion.crearParametro("@nombreUsuario", nombreUsuario);
+            parametros[1] = objConexion.crearParametro("@idEmpleado", IDEmpleado);
+            parametros[2] = objConexion.crearParametro("@nombre", nombre);
+            parametros[3] = objConexion.crearParametro("@apellido", apellido);
+            parametros[4] = objConexion.crearParametro("@idPerfil", perfil);
+            parametros[5] = objConexion.crearParametro("@dni", dni);
+
+            // Ejecutar el procedimiento almacenado para crear el usuario
+            int filasAfectadas = objConexion.EscribirPorStoreProcedure(usuarioStoreProcedure, parametros);
+
+            if (filasAfectadas > 0)
+            {
+                // Si se modificó el usuario correctamente, retornar true
+                return true;
+            }
+            else
+            {
+                // Si no se creó el usuario correctamente, retornar false o lanzar una excepción
+                return false;
+            }
+
+        }
+
+        public bool BajaUsuario(int IDEmpleado)
+        {
+            string usuarioStoreProcedure = "sp_eliminar_usuario";
+            SqlParameter[] parametros = new SqlParameter[1];
+            Conexion objConexion = new Conexion();
+            parametros[0] = objConexion.crearParametro("@idEmpleado", IDEmpleado);
+
+            // Ejecutar el procedimiento almacenado para crear el usuario
+            int filasAfectadas = objConexion.EscribirPorStoreProcedure(usuarioStoreProcedure, parametros);
+
+            if (filasAfectadas > 0)
+            {
+                // Si se eliminó el usuario correctamente, retornar true
                 return true;
             }
             else
@@ -93,7 +139,7 @@ namespace DAL
         /// <param name="username"></param>
         /// <param name="dni"></param>
         /// <returns></returns>
-        public int usuarioRepetido(string username, int dni)
+        public int usuarioRepetido(int IDEmpleado, string username, int dni)
         {
             Conexion objConexion = new Conexion();
             DataTable dt = objConexion.LeerPorStoreProcedure("sp_ver_usuarios");
@@ -103,11 +149,14 @@ namespace DAL
             {
                 BUE.Empleado empleado = new BUE.Empleado();
 
-                if (dr["nombre_usuario"].ToString() == username)
-                    return 1;
+                if (Convert.ToInt32(dr["id_empleado"]) != IDEmpleado)
+                {
+                    if (dr["nombre_usuario"].ToString() == username)
+                        return 1;
 
-                if (Convert.ToInt32(dr["dni_empleado"]) == dni)
-                    return 2;
+                    if (Convert.ToInt32(dr["dni_empleado"]) == dni)
+                        return 2;
+                }
             }
 
             return 0;
