@@ -17,20 +17,19 @@ namespace diav0._0._1
         private Venta objVenta;
         private ManageArticulo gestorArticulo;
         private ManageVenta gestorVenta;
-
-        //desactivar visualizadcion de lo derecha
-
-
+        private ManageCliente objCliente;
         public FormVenta()
         {
             InitializeComponent();
             objVenta = new Venta();
+            objCliente = new ManageCliente();
             gestorArticulo = new ManageArticulo();
             gestorVenta = new ManageVenta();
         }
 
         private void FormVenta_Load(object sender, EventArgs e)
         {
+            //fillear el comobobox con los clientes ( sin contar el generico)
 
         }
 
@@ -132,7 +131,7 @@ namespace diav0._0._1
 
 
             armarTablaResumenVenta();
-
+            //poner los datos del cliente seleccionado (si es el generico, o no se elije, va vacio)
            
         }
 

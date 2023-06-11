@@ -216,6 +216,8 @@
             // 
             this.dgvResumen.AllowUserToAddRows = false;
             this.dgvResumen.AllowUserToDeleteRows = false;
+            this.dgvResumen.AllowUserToResizeRows = false;
+            this.dgvResumen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResumen.Location = new System.Drawing.Point(566, 189);
             this.dgvResumen.Name = "dgvResumen";
@@ -223,6 +225,7 @@
             this.dgvResumen.RowHeadersVisible = false;
             this.dgvResumen.RowHeadersWidth = 51;
             this.dgvResumen.RowTemplate.Height = 24;
+            this.dgvResumen.ShowEditingIcon = false;
             this.dgvResumen.Size = new System.Drawing.Size(460, 244);
             this.dgvResumen.TabIndex = 16;
             this.dgvResumen.Visible = false;

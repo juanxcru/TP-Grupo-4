@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManageCliente.cs" />
     <Compile Include="ManageArticulo.cs" />
     <Compile Include="ManageVenta.cs" />
     <Compile Include="SysAdmin.cs" />
