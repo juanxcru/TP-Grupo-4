@@ -16,15 +16,15 @@ namespace DAL
         /// Invocamos al store procedure que devuelve un DataTable, instanciamos un objeto de negocio y lo poblamos
         /// </summary>
         /// <param name="nombreUsuario"></param>
-        /// <param name="contraseña"></param>
+        /// <param name="password"></param>
         /// <returns>Si el Datatable es null o la cantidad de filas es 0, retornamos nulo, sino retornamos el objeto de negocio</returns>
-        public BUE.Usuario ValidarUsuario(string nombreUsuario, string contraseña)
+        public BUE.Usuario ValidarUsuario(string nombreUsuario, string password)
         {
             string usuarioStoreProcedure = "sp_validar_usuario";
             SqlParameter[] parametros = new SqlParameter[2];
             Conexion objConexion = new Conexion();
             parametros[0] = objConexion.crearParametro("@username", nombreUsuario);
-            parametros[1] = objConexion.crearParametro("@password", contraseña);
+            parametros[1] = objConexion.crearParametro("@password", password);
 
             DataTable dt = objConexion.LeerPorStoreProcedure(usuarioStoreProcedure, parametros);
 
@@ -34,7 +34,7 @@ namespace DAL
             BUE.Usuario usuarioDeRetorno = new BUE.Usuario();
             usuarioDeRetorno.ID = int.Parse(dt.Rows[0][0].ToString());
             usuarioDeRetorno.UserName = dt.Rows[0]["nombre_usuario"].ToString();
-            usuarioDeRetorno.Password = contraseña;
+            usuarioDeRetorno.Password = password;
             usuarioDeRetorno.Perfil = new BUE.Perfil();
             usuarioDeRetorno.Perfil.ID = int.Parse(dt.Rows[0]["id_perfil"].ToString());
             usuarioDeRetorno.Perfil.Descripcion = dt.Rows[0]["descripcion"].ToString();
@@ -50,20 +50,20 @@ namespace DAL
         /// <param name="apellido"></param>
         /// <param name="dni"></param>
         /// <param name="nombreUsuario"></param>
-        /// <param name="contraseña"></param>
+        /// <param name="password"></param>
         /// <param name="perfil"></param>
         /// <returns></returns>
-        public BUE.Usuario CrearUsuario(string nombre, string apellido, int dni, string nombreUsuario, string contraseña, int perfil)
+        public bool CrearUsuario(string nombreUsuario, string password, string nombre, string apellido, int perfil, int dni)
         {
-            string usuarioStoreProcedure = "sp_alta_usuario";
+            string usuarioStoreProcedure = "sp_insertar_usuario";
             SqlParameter[] parametros = new SqlParameter[6];
             Conexion objConexion = new Conexion();
-            parametros[0] = objConexion.crearParametro("@username", nombreUsuario);
-            parametros[1] = objConexion.crearParametro("@password", contraseña);
+            parametros[0] = objConexion.crearParametro("@nombreUsuario", nombreUsuario);
+            parametros[1] = objConexion.crearParametro("@password", password);
             parametros[2] = objConexion.crearParametro("@nombre", nombre);
             parametros[3] = objConexion.crearParametro("@apellido", apellido);
-            parametros[4] = objConexion.crearParametro("@id_perfil", perfil);
-            parametros[5] = objConexion.crearParametro("@dni_empleado", dni);
+            parametros[4] = objConexion.crearParametro("@idPerfil", perfil);
+            parametros[5] = objConexion.crearParametro("@dni", dni);
 
             // Ejecutar el procedimiento almacenado para crear el usuario
             int filasAfectadas = objConexion.EscribirPorStoreProcedure(usuarioStoreProcedure, parametros);
@@ -73,18 +73,44 @@ namespace DAL
                 // Si se creó el usuario correctamente, retornar el objeto Usuario creado
                 BUE.Usuario usuarioCreado = new BUE.Usuario();
                 usuarioCreado.UserName = nombreUsuario;
-                usuarioCreado.Password = contraseña;
+                usuarioCreado.Password = password;
                 usuarioCreado.Perfil = new BUE.Perfil();
                 usuarioCreado.Perfil.ID = perfil;
 
-                return usuarioCreado;
+                return true;
             }
             else
             {
-                // Si no se creó el usuario correctamente, retornar null o lanzar una excepción
-                return null;
+                // Si no se creó el usuario correctamente, retornar false o lanzar una excepción
+                return false;
             }
 
+        }
+
+        /// <summary>
+        /// Corrobora que el usuario no esté duplicado
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="dni"></param>
+        /// <returns></returns>
+        public int usuarioRepetido(string username, int dni)
+        {
+            Conexion objConexion = new Conexion();
+            DataTable dt = objConexion.LeerPorStoreProcedure("sp_ver_usuarios");
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                BUE.Empleado empleado = new BUE.Empleado();
+
+                if (dr["nombre_usuario"].ToString() == username)
+                    return 1;
+
+                if (Convert.ToInt32(dr["dni_empleado"]) == dni)
+                    return 2;
+            }
+
+            return 0;
         }
 
         /// <summary>
@@ -96,10 +122,22 @@ namespace DAL
         {
             Conexion objConexion = new Conexion();
 
-            DataTable dt = objConexion.LeerPorStoreProcedure("sp_merge_usuarios");
+            DataTable dt = objConexion.LeerPorStoreProcedure("sp_ver_usuarios");
 
             return dt;
         }
 
+        /// <summary>
+        /// Obtengo los perfiles creados en la BBDD
+        /// </summary>
+        /// <returns></returns>
+        public DataTable ObtenerPerfiles()
+        {
+            Conexion objConexion = new Conexion();
+
+            DataTable dt = objConexion.LeerPorStoreProcedure("sp_select_perfil");
+
+            return dt;
+        }
     }
 }

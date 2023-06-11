@@ -33,5 +33,6 @@ namespace BLL
             return dalUsuario.ValidarUsuario(nombreUsuario,password);
         }
 
+
     }
 }

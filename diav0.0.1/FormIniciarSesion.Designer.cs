@@ -71,6 +71,7 @@ namespace diav0._0._1
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel30 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel36 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
             this.panel34 = new System.Windows.Forms.Panel();
@@ -78,7 +79,6 @@ namespace diav0._0._1
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             panel6 = new System.Windows.Forms.Panel();
             panel6.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -94,8 +94,8 @@ namespace diav0._0._1
             this.panel25.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel30.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel6
@@ -576,6 +576,17 @@ namespace diav0._0._1
             this.panel30.Size = new System.Drawing.Size(173, 135);
             this.panel30.TabIndex = 14;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(8, 37);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(157, 80);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel36
             // 
             this.panel36.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -657,17 +668,6 @@ namespace diav0._0._1
             this.panel31.Size = new System.Drawing.Size(8, 375);
             this.panel31.TabIndex = 11;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(8, 37);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(157, 80);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // FormIniciarSesion
             // 
             this.AcceptButton = this.btnLogin;
@@ -704,9 +704,9 @@ namespace diav0._0._1
             this.panel28.ResumeLayout(false);
             this.panel28.PerformLayout();
             this.panel30.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

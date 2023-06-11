@@ -16,14 +16,30 @@ namespace BLL
         /// <summary>
         /// Crea al usuario en la base de datos
         /// </summary>
-        /// <param name="usuario"></param>
+        /// <param name="nombreUsuario"></param>
+        /// <param name="password"></param>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="perfil"></param>
+        /// <param name="dni"></param>
         /// <returns></returns>
-        public bool CrearUsuario(BUE.Usuario usuario)
+        public int CrearUsuario(string nombreUsuario, string password, string nombre, string apellido, int perfil, int dni)
         {
-           
-            
-           return true;
+            UsuarioDAL userIngresado = new UsuarioDAL();
+
+            int rep = userIngresado.usuarioRepetido(nombreUsuario, dni);
+
+            switch (rep)
+            {
+                case 1: return 1;
+                case 2: return 2;
+            }
+
+            userIngresado.CrearUsuario(nombreUsuario, password, nombre, apellido, perfil, dni);
+
+            return 0;
         }
+
         /// <summary>
         /// Lista de usuarios con su información completa
         /// </summary>
@@ -46,7 +62,7 @@ namespace BLL
                 BUE.Usuario usuario = new BUE.Usuario();
                 usuario.ID = Convert.ToInt32(dr["id_usuario"]);
                 usuario.UserName = dr["nombre_usuario"].ToString();
-                usuario.Password = dr["contraseña"].ToString();
+                usuario.Password = dr["password"].ToString();
 
                 BUE.Perfil perfil = new BUE.Perfil();
                 perfil.ID = Convert.ToInt32(dr["id_perfil"]);
@@ -56,6 +72,24 @@ namespace BLL
             }
 
             return listaUsuarios;
+        }
+
+        public List<BUE.Perfil> getPerfiles()
+        {
+            List<BUE.Perfil> perfiles = new List<BUE.Perfil>();
+            UsuarioDAL usuarioDAL = new UsuarioDAL();
+            DataTable dt = usuarioDAL.ObtenerPerfiles();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                BUE.Perfil perfil = new BUE.Perfil();
+                perfil.ID = Convert.ToInt32(dr["id_perfil"]);
+                perfil.Descripcion = dr["descripcion"].ToString();
+                perfiles.Add(perfil);
+            }
+
+            return perfiles;
+
         }
     }
 }

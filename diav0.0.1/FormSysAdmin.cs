@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace diav0._0._1
 {
@@ -17,18 +19,74 @@ namespace diav0._0._1
     {
         private BUE.Usuario objUsuario;
         private BLL.SysAdmin gestorUsuario;
+        // Declarar el BindingSource como miembro de la clase
+        private BindingSource bindingSource;
+
+        private static string GenerarContraseñaAleatoria()
+        {
+            const string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder contraseña = new StringBuilder();
+            Random random = new Random();
+
+            for (int i = 0; i < 20; i++)
+            {
+                int indice = random.Next(caracteres.Length);
+                contraseña.Append(caracteres[indice]);
+            }
+
+            return contraseña.ToString();
+        }
+
+        private void MessageFilaAfectada(DataGridViewRow filaNueva, string mensaje)
+        {
+            string infoFilaAfectada = InfoFila(filaNueva);
+
+            // Mostrar cartel con la información de la fila afectada y el mensaje
+            MessageBox.Show($"{infoFilaAfectada}\n\n{mensaje}", "Información de la fila afectada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private string InfoFila(DataGridViewRow fila)
+        {
+            // Obtener los valores de la fila seleccionada
+            int idEmpleado = Convert.ToInt32(fila.Cells["IDEmpleado"].Value);
+            string nombre = fila.Cells["Nombre"].Value.ToString();
+            string apellido = fila.Cells["Apellido"].Value.ToString();
+            int dni = Convert.ToInt32(fila.Cells["DNI"].Value);
+            string username = fila.Cells["Username"].Value.ToString();
+            string rol = fila.Cells["Rol"].Displayed.ToString();
+
+            // Construir la información de la fila afectada
+            string infoFilaAfectada = $"Empleado: {idEmpleado}\n" +
+                                      $"Nombre: {nombre}\n" +
+                                      $"Apellido: {apellido}\n" +
+                                      $"DNI: {dni}\n" +
+                                      $"Username: {username}\n" +
+                                      $"Rol: {rol}";
+            return infoFilaAfectada;
+        }
 
         public FormSysAdmin()
         {
             InitializeComponent();
+
             objUsuario = new BUE.Usuario();
             gestorUsuario = new BLL.SysAdmin();
+            
+            ActualizarTabla();
+        }
 
+        public void ActualizarTabla()
+        {
             List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaDeUsuarios = gestorUsuario.ObtenerListaUsuarios();
-            DataTable dt = ActualizarTablaUsuarios(listaDeUsuarios);
 
-            GridUsuarios.DataSource = dt;
+            GridUsuarios.DataSource = null;
 
+            var combobox = (DataGridViewComboBoxColumn)GridUsuarios.Columns["Rol"];
+            combobox.DisplayMember = "Descripcion"; // Nombre de la propiedad para mostrar en el DropDownList
+            combobox.ValueMember = "ID"; // Nombre de la propiedad para obtener el valor seleccionado
+            combobox.DataSource = GetLista(); // Fuente de datos para el DropDownList
+
+            ActualizarTablaUsuarios(listaDeUsuarios);
         }
 
         /// <summary>
@@ -36,64 +94,86 @@ namespace diav0._0._1
         /// </summary>
         /// <param name="listaDeUsuarios"></param>
         /// <returns></returns>
-        public DataTable ActualizarTablaUsuarios(List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaDeUsuarios)
+        public void ActualizarTablaUsuarios(List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaDeUsuarios)
         {
-            DataTable dtUsuarios = new DataTable();
-            
-            dtUsuarios.Columns.Add("ID Empleado", typeof(int));
-            dtUsuarios.Columns.Add("Nombre", typeof(string));
-            dtUsuarios.Columns.Add("Apellido", typeof(string));
-            dtUsuarios.Columns.Add("DNI", typeof(string));
-            dtUsuarios.Columns.Add("Username", typeof(string));
-            dtUsuarios.Columns.Add("Rol", typeof(string));
-
             foreach (var usuarioTuple in listaDeUsuarios)
             {
-                DataRow nuevaFila = dtUsuarios.NewRow();
+                // Crear una nueva fila
+                DataGridViewRow nuevaFila = new DataGridViewRow();
 
-                // saco info de empleado
-                nuevaFila["ID Empleado"] = usuarioTuple.Item1.IdEmpleado;
-                nuevaFila["Nombre"] = usuarioTuple.Item1.Nombre;
-                nuevaFila["Apellido"] = usuarioTuple.Item1.Apellido;
-                nuevaFila["DNI"] = usuarioTuple.Item1.Dni;
-                
-                // saco la info de usuario
-                nuevaFila["Username"] = usuarioTuple.Item2.UserName;
-                
-                // saco la info de perfil
-                nuevaFila["Rol"] = usuarioTuple.Item3.Descripcion;
+                // Agregar celdas a la fila del DataGrid
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item1.IdEmpleado });
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item1.Nombre });
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item1.Apellido });
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item1.Dni });
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item2.UserName });
+                int Rol = usuarioTuple.Item3.ID;
 
-                dtUsuarios.Rows.Add(nuevaFila);
+                // Crear una celda de tipo DataGridViewComboBoxCell para la columna "Rol"
+                DataGridViewComboBoxCell comboBoxCell = new DataGridViewComboBoxCell();
+                comboBoxCell.FlatStyle = FlatStyle.Flat;
+                comboBoxCell.DataSource = GetLista(); // Fuente de datos para el DropDownList
+                comboBoxCell.DisplayMember = "Descripcion"; // Nombre de la propiedad para mostrar en el DropDownList
+                comboBoxCell.ValueMember = "ID"; // Nombre de la propiedad para obtener el valor seleccionado
+                comboBoxCell.Value = Rol; // Establecer el valor seleccionado
+
+                // Agregar la celda a la fila
+                nuevaFila.Cells.Add(comboBoxCell);
+
+                // Agregar la fila al DataGridView y a la tablaUsuarios
+                GridUsuarios.Rows.Add(nuevaFila);
             }
-
-            return dtUsuarios;
         }
+        
 
-        private void btnAltaUsuario_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Obtengo una lista de los perfiles actuales en la base de datos.
+        /// </summary>
+        /// <returns></returns>
+        public List<Perfil> GetLista()
         {
-            // completar nombre
-            // completar apellido
-            // completar dni
-            // completar perfil
+            List<Perfil> listaPerfiles = gestorUsuario.getPerfiles(); // Obtener la lista de perfiles
 
-            // completar username
-            // corroborar que no exista este username
-            // si existe -> pedir de nuevo
-            // si no existe -> completar password
-
-            // dal.crearusuario
-            // 
-
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-
+            return listaPerfiles;
         }
 
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = GridUsuarios.SelectedRows[0];
+
+            // Obtener los valores de la fila seleccionada
+            int idEmpleado = Convert.ToInt32(selectedRow.Cells["IDEmpleado"].Value);
+            string nombre = selectedRow.Cells["Nombre"].Value.ToString();
+            string apellido = selectedRow.Cells["Apellido"].Value.ToString();
+            int dni = Convert.ToInt32(selectedRow.Cells["DNI"].Value);
+            string username = selectedRow.Cells["Username"].Value.ToString();
+            int rol = Convert.ToInt32(selectedRow.Cells["Rol"].Value);
+
+            // Generar una contraseña aleatoria
+            string password = GenerarContraseñaAleatoria();
+
+            // Crear el usuario y obtener el resultado
+            int resultado = gestorUsuario.CrearUsuario(username, password, nombre, apellido, rol, dni);
+
+            // Mostrar el mensaje correspondiente según el resultado
+            string mensaje;
+            if (resultado == 1)
+            {
+                mensaje = "Username repetido";
+            }
+            else if (resultado == 2)
+            {
+                mensaje = "DNI repetido";
+            }
+            else
+            {
+                mensaje = "Usuario creado con éxito. Contraseña generada: " + password;
+            }
+
+            // Mostrar el cartel con la información de la fila afectada y el mensaje
+            MessageFilaAfectada(selectedRow, mensaje);
+            ActualizarTabla();
+        }
     }
+
 }
