@@ -186,7 +186,7 @@
             this.btnFinalizarVenta.Name = "btnFinalizarVenta";
             this.btnFinalizarVenta.Size = new System.Drawing.Size(100, 63);
             this.btnFinalizarVenta.TabIndex = 13;
-            this.btnFinalizarVenta.Text = "Finalizar venta";
+            this.btnFinalizarVenta.Text = "Revisar venta";
             this.btnFinalizarVenta.UseVisualStyleBackColor = true;
             this.btnFinalizarVenta.Click += new System.EventHandler(this.btnFinalizarVenta_Click);
             // 

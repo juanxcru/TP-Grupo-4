@@ -98,32 +98,48 @@ namespace diav0._0._1
 
         private void btnCancelarVenta_Click(object sender, EventArgs e)
         {
-            objVenta.ListaArticulos.Clear();
-
-
-            lboxArticulos.Items.Clear();
-
-
-            lblTotalAPagar.Text = "0";
-
-
-            txtCantidadArticulos.Text = "";
-            txtIdArticulo.Text = "";
-
+            limpiarCampos();
 
             MessageBox.Show("Venta cancelada");
         }
 
         private void btnFinalizarVenta_Click(object sender, EventArgs e)
         {
+
+            if (btnFinalizarVenta.Text.Equals("Finalizar Venta")) {
+                
+
+                //guardar venta en bbdd 
+                //exportar factura?
+                // 
+
+                //MessageBox.Show($"Venta {objVenta.IdVenta} finalizada" );
+                MessageBox.Show("Venta finalizada" );
+                
+                limpiarCampos();
+                return;
+            
+            }
+
+
             lblApellidoNombreCliente.Visible = true;
             lblDNI.Visible = true;
             dgvResumen.Visible = true;
 
             btnEliminarArticulo.Enabled = false;
             btnIngresarArticulo.Enabled = false;
-            btnFinalizarVenta.Enabled = false;
+            btnFinalizarVenta.Text = "Finalizar Venta";
 
+
+            armarTablaResumenVenta();
+
+           
+        }
+
+
+
+        private void armarTablaResumenVenta()
+        {
             DataTable resumenVenta = new DataTable();
 
             resumenVenta.Columns.Add("Articulo");
@@ -131,12 +147,46 @@ namespace diav0._0._1
             resumenVenta.Columns.Add("Cantidad");
             resumenVenta.Columns.Add("Total");
 
-            foreach (ItemVenta iv in objVenta.ListaArticulos){
+            foreach (ItemVenta iv in objVenta.ListaArticulos)
+            {
 
-                resumenVenta.Rows.Add(iv.Articulo.Descripcion, iv.Articulo.Precio, iv.Cantidad, iv.SubTotal);
+                resumenVenta.Rows.Add($"{iv.Articulo.Descripcion} marca {iv.Articulo.Marca.NombreMarca}", iv.Articulo.Precio.ToString("C"), iv.Cantidad, iv.SubTotal.ToString("C"));
             }
+            resumenVenta.Rows.Add("", "", "", "");
+            resumenVenta.Rows.Add("TOTAL", "", "", objVenta.MontoTotal.ToString("C"));
 
             dgvResumen.DataSource = resumenVenta;
+
+
+        }
+        private void limpiarCampos()
+        {
+
+            objVenta.ListaArticulos.Clear();
+            lboxArticulos.Items.Clear();
+            
+            lblTotalAPagar.Text = "0";
+            txtCantidadArticulos.Text = "";
+            txtIdArticulo.Text = "";
+
+            if (dgvResumen.Visible)
+            {
+                dgvResumen.DataSource = null;
+                dgvResumen.Refresh();
+
+                dgvResumen.Visible = false;
+                lblApellidoNombreCliente.Visible = false;
+                lblDNI.Visible = false;
+
+                btnEliminarArticulo.Enabled = true;
+                btnIngresarArticulo.Enabled = true;
+                btnFinalizarVenta.Text = "Revisar venta";
+
+                objVenta = new Venta();
+
+            }
+
+
 
         }
     }
