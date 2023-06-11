@@ -104,10 +104,13 @@
             // 
             // dgvArticulos
             // 
+            this.dgvArticulos.AllowUserToAddRows = false;
+            this.dgvArticulos.AllowUserToDeleteRows = false;
             this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(24, 123);
             this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.ReadOnly = true;
             this.dgvArticulos.Size = new System.Drawing.Size(604, 290);
             this.dgvArticulos.TabIndex = 6;
             // 
@@ -166,7 +169,7 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Cantidad";
             // 
-            // crearArticulo
+            // FormCrearArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,7 +186,7 @@
             this.Controls.Add(this.cmbMarca);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.txtDescripcion);
-            this.Name = "crearArticulo";
+            this.Name = "FormCrearArticulo";
             this.Text = "Crear Articulo";
             this.Load += new System.EventHandler(this.crearArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).EndInit();
