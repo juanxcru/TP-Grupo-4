@@ -50,6 +50,9 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.IDVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fechayhora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -234,6 +237,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDVenta,
+            this.Fechayhora,
+            this.MontoTotal});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(8, 8);
             this.dataGridView1.Name = "dataGridView1";
@@ -297,6 +304,24 @@
             this.panel16.Size = new System.Drawing.Size(503, 8);
             this.panel16.TabIndex = 13;
             // 
+            // IDVenta
+            // 
+            this.IDVenta.HeaderText = "ID Venta";
+            this.IDVenta.Name = "IDVenta";
+            this.IDVenta.ReadOnly = true;
+            // 
+            // Fechayhora
+            // 
+            this.Fechayhora.HeaderText = "Fecha y Hora";
+            this.Fechayhora.Name = "Fechayhora";
+            this.Fechayhora.ReadOnly = true;
+            // 
+            // MontoTotal
+            // 
+            this.MontoTotal.HeaderText = "Monto Total";
+            this.MontoTotal.Name = "MontoTotal";
+            this.MontoTotal.ReadOnly = true;
+            // 
             // FormManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,5 +367,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fechayhora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MontoTotal;
     }
 }

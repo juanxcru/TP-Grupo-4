@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,11 +18,19 @@ namespace diav0._0._1
             InitializeComponent();
         }
         
-
+        Gerente Usuario = new Gerente();
 
         private void BotonBuscar_Click(object sender, EventArgs e)
         {
-            MessageBox InsertarÏd = new MessageBox(Text);
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Ingresa ID del vendedor:", "", "");
+            bool tf = int.TryParse(input, out int ID);
+            if (tf)
+            {
+                Usuario.VerVentaPorUsuario(ID);
+            }
+
+            
+
 
         }
     }
