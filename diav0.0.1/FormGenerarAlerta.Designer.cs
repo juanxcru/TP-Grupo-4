@@ -55,15 +55,15 @@
             this.btnGenerarAlerta.UseVisualStyleBackColor = true;
             this.btnGenerarAlerta.Click += new System.EventHandler(this.btnGenerarAlerta_Click);
             // 
-            // FrmGenerarAlerta
+            // FormGenerarAlerta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnGenerarAlerta);
             this.Controls.Add(this.dgvGenerarAlerta);
-            this.Name = "FrmGenerarAlerta";
-            this.Text = "frmGenerarAlerta";
+            this.Name = "FormGenerarAlerta";
+            this.Text = "Generar Alerta";
             this.Load += new System.EventHandler(this.FrmGenerarAlerta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerarAlerta)).EndInit();
             this.ResumeLayout(false);

@@ -197,6 +197,11 @@
             // nudStockNuevo
             // 
             this.nudStockNuevo.Location = new System.Drawing.Point(538, 146);
+            this.nudStockNuevo.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.nudStockNuevo.Name = "nudStockNuevo";
             this.nudStockNuevo.Size = new System.Drawing.Size(120, 20);
             this.nudStockNuevo.TabIndex = 13;
@@ -231,7 +236,7 @@
             this.Controls.Add(this.btnCargarStock);
             this.Controls.Add(this.dgvGestionarStock);
             this.Name = "FormGestionarStock";
-            this.Text = "FormGestionarStock";
+            this.Text = "Gestionar Stock";
             ((System.ComponentModel.ISupportInitialize)(this.dgvGestionarStock)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

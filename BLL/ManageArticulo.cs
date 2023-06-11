@@ -16,16 +16,6 @@ namespace BLL
             
         }
         ArticuloDAL articuloDAL = new ArticuloDAL();
-        public List<Articulo> listarCategoria()
-        {
-            //return articuloDAL.cargarCategoria();
-            return articuloDAL.listarCategorias();
-        }
-
-        public DataTable cargarMarcas()
-        {
-            return articuloDAL.cargarMarcas();
-        }
 
         public Articulo ValidarArticulo(string idArticulo, int cantidad)
         {

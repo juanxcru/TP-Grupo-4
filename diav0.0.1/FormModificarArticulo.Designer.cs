@@ -225,6 +225,11 @@
             // 
             this.nudNuevoPrecio.Enabled = false;
             this.nudNuevoPrecio.Location = new System.Drawing.Point(181, 272);
+            this.nudNuevoPrecio.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.nudNuevoPrecio.Name = "nudNuevoPrecio";
             this.nudNuevoPrecio.Size = new System.Drawing.Size(126, 20);
             this.nudNuevoPrecio.TabIndex = 19;
@@ -278,7 +283,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "FormModificarArticulo";
-            this.Text = "FormModificarArticulo";
+            this.Text = "Modificar Articulo";
             this.Load += new System.EventHandler(this.FormModificarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.groupBox1.ResumeLayout(false);
