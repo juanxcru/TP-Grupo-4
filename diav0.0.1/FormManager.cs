@@ -16,19 +16,12 @@ namespace diav0._0._1
         {
             InitializeComponent();
         }
+        
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void BotonBuscar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormManager_Load(object sender, EventArgs e)
-        {
+            MessageBox InsertarÏd = new MessageBox(Text);
 
         }
     }
