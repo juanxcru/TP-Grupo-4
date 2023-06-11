@@ -18,6 +18,9 @@ namespace diav0._0._1
         private ManageArticulo gestorArticulo;
         private ManageVenta gestorVenta;
 
+        //desactivar visualizadcion de lo derecha
+
+
         public FormVenta()
         {
             InitializeComponent();
@@ -44,8 +47,8 @@ namespace diav0._0._1
             }
             else
             {
-                ItemVenta itemVenta = new ItemVenta(cantidad, objArticulo);
-                gestorVenta.AgregarItemVenta(itemVenta, objVenta);
+                //ItemVenta itemVenta = new ItemVenta(cantidad, objArticulo);
+                gestorVenta.AgregarArticuloAVenta(objArticulo, cantidad, objVenta);
                 ActualizarListBoxArticulos();
             }
         }
@@ -109,6 +112,32 @@ namespace diav0._0._1
 
 
             MessageBox.Show("Venta cancelada");
+        }
+
+        private void btnFinalizarVenta_Click(object sender, EventArgs e)
+        {
+            lblApellidoNombreCliente.Visible = true;
+            lblDNI.Visible = true;
+            dgvResumen.Visible = true;
+
+            btnEliminarArticulo.Enabled = false;
+            btnIngresarArticulo.Enabled = false;
+            btnFinalizarVenta.Enabled = false;
+
+            DataTable resumenVenta = new DataTable();
+
+            resumenVenta.Columns.Add("Articulo");
+            resumenVenta.Columns.Add("Precio");
+            resumenVenta.Columns.Add("Cantidad");
+            resumenVenta.Columns.Add("Total");
+
+            foreach (ItemVenta iv in objVenta.ListaArticulos){
+
+                resumenVenta.Rows.Add(iv.Articulo.Descripcion, iv.Articulo.Precio, iv.Cantidad, iv.SubTotal);
+            }
+
+            dgvResumen.DataSource = resumenVenta;
+
         }
     }
 }

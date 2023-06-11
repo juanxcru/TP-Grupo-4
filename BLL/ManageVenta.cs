@@ -9,6 +9,7 @@ namespace BLL
 {
     public class ManageVenta
     {
+        private static int lastItemId = 0;
         public void RealizarVenta(Venta venta)
         {
 
@@ -24,9 +25,21 @@ namespace BLL
             return total;
         }
 
-        public Venta AgregarArticuloAVenta(Articulo articulo, double cantidad, Venta venta)
+        public Venta AgregarArticuloAVenta(Articulo articulo, int cantidad, Venta venta)
         {
 
+            foreach (ItemVenta  iv in venta.ListaArticulos) {
+
+                if (iv.Articulo.IdArticulo.Equals(articulo.IdArticulo))
+                {
+                    iv.Cantidad += cantidad;
+                    iv.SubTotal = iv.Cantidad * articulo.Precio;
+                    venta.MontoTotal += iv.SubTotal;
+                    return venta;
+                }
+            }
+            
+            
             ItemVenta itemVenta = new ItemVenta
             {
                 IdItemVenta = GenerateItemId(),
@@ -43,7 +56,6 @@ namespace BLL
 
             return venta;
         }
-        private static int lastItemId = 0;
 
         private static int GenerateItemId()
         {

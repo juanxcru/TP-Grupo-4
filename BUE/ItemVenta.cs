@@ -11,20 +11,21 @@ namespace BUE
 
 
         private int _idItemVenta;
+        private double _cantidad;
+        private double _subTotal;
+        private Articulo _articulo;
 
         public int IdItemVenta
         {
             get { return _idItemVenta; }
             set { _idItemVenta = value; }
         }
-        private double _cantidad;
 
         public double Cantidad
         {
             get { return _cantidad; }
             set { _cantidad = value; }
         }
-        private double _subTotal;
 
         public double SubTotal
         {
@@ -32,7 +33,6 @@ namespace BUE
             set { _subTotal = value; }
         }
 
-        private Articulo _articulo;
 
         public Articulo Articulo
         {

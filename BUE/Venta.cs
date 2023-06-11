@@ -9,20 +9,43 @@ namespace BUE
     public class Venta
     {
         private int _idVenta;
+        private int _idCliente;
+        private int _idEmpleado;
+        private double _montoTotal;
+        private DateTime _fechaYHora;
+        private List<ItemVenta> _listaArticulos = new List<ItemVenta>();
 
+        public Venta()
+        {
+            ListaArticulos = new List<ItemVenta>();
+        }
         public int IdVenta
         {
             get { return _idVenta; }
             set { _idVenta = value; }
         }
-        private DateTime _fechaYHora;
+
+
+        public int IdEmpleado
+        {
+            get { return _idEmpleado; }
+            set { _idEmpleado = value; }
+        }
+
+
+        public int IdCliente
+        {
+            get { return _idCliente; }
+            set { _idCliente = value; }
+        }
+
+
 
         public DateTime FechaYHora
         {
             get { return _fechaYHora; }
             set { _fechaYHora = value; }
         }
-        private double _montoTotal;
 
         public double MontoTotal
         {
@@ -30,7 +53,6 @@ namespace BUE
             set { _montoTotal = value; }
         }
 
-        private List<ItemVenta> _listaArticulos = new List<ItemVenta>();
 
         public List<ItemVenta> ListaArticulos
         {
@@ -38,9 +60,5 @@ namespace BUE
             set { _listaArticulos = value; }
         }
 
-        public Venta()
-        {
-            ListaArticulos = new List<ItemVenta>();
-        }
     }
 }
