@@ -53,7 +53,7 @@ namespace diav0._0._1
             string apellido = fila.Cells["Apellido"].Value.ToString();
             int dni = Convert.ToInt32(fila.Cells["DNI"].Value);
             string username = fila.Cells["Username"].Value.ToString();
-            string rol = fila.Cells["Rol"].Displayed.ToString();
+            string rol = fila.Cells["Rol"].Value.ToString();
 
             // Construir la información de la fila afectada
             string infoFilaAfectada = $"Empleado: {idEmpleado}\n" +
