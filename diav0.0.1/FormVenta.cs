@@ -29,7 +29,9 @@ namespace diav0._0._1
 
         private void FormVenta_Load(object sender, EventArgs e)
         {
-            //fillear el comobobox con los clientes ( sin contar el generico)
+            
+
+
 
         }
 
@@ -97,7 +99,7 @@ namespace diav0._0._1
 
         private void btnCancelarVenta_Click(object sender, EventArgs e)
         {
-            limpiarCampos();
+            LimpiarCampos();
 
             MessageBox.Show("Venta cancelada");
         }
@@ -115,7 +117,7 @@ namespace diav0._0._1
                 //MessageBox.Show($"Venta {objVenta.IdVenta} finalizada" );
                 MessageBox.Show("Venta finalizada" );
                 
-                limpiarCampos();
+                LimpiarCampos();
                 return;
             
             }
@@ -130,14 +132,14 @@ namespace diav0._0._1
             btnFinalizarVenta.Text = "Finalizar Venta";
 
 
-            armarTablaResumenVenta();
+            ArmarTablaResumenVenta();
             //poner los datos del cliente seleccionado (si es el generico, o no se elije, va vacio)
            
         }
 
 
 
-        private void armarTablaResumenVenta()
+        private void ArmarTablaResumenVenta()
         {
             DataTable resumenVenta = new DataTable();
 
@@ -158,7 +160,7 @@ namespace diav0._0._1
 
 
         }
-        private void limpiarCampos()
+        private void LimpiarCampos()
         {
 
             objVenta.ListaArticulos.Clear();
@@ -185,6 +187,13 @@ namespace diav0._0._1
 
             }
 
+
+
+        }
+
+        private void DniBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            objCliente.BuscarDni(dniBusqueda.Text);
 
 
         }

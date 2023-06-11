@@ -47,6 +47,8 @@
             this.dgvResumen = new System.Windows.Forms.DataGridView();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.lblCliente = new System.Windows.Forms.Label();
+            this.dniBusqueda = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(351, 448);
+            this.label5.Location = new System.Drawing.Point(400, 448);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 17);
@@ -129,7 +131,7 @@
             // lblTotalAPagar
             // 
             this.lblTotalAPagar.AutoSize = true;
-            this.lblTotalAPagar.Location = new System.Drawing.Point(458, 448);
+            this.lblTotalAPagar.Location = new System.Drawing.Point(507, 448);
             this.lblTotalAPagar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalAPagar.Name = "lblTotalAPagar";
             this.lblTotalAPagar.Size = new System.Drawing.Size(28, 17);
@@ -233,26 +235,47 @@
             // cmbCliente
             // 
             this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(64, 123);
+            this.cmbCliente.Location = new System.Drawing.Point(337, 122);
             this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(471, 24);
+            this.cmbCliente.Size = new System.Drawing.Size(198, 24);
             this.cmbCliente.TabIndex = 17;
             // 
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(61, 95);
+            this.lblCliente.Location = new System.Drawing.Point(334, 95);
             this.lblCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(51, 17);
             this.lblCliente.TabIndex = 18;
             this.lblCliente.Text = "Cliente";
             // 
+            // dniBusqueda
+            // 
+            this.dniBusqueda.Location = new System.Drawing.Point(65, 123);
+            this.dniBusqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.dniBusqueda.Name = "dniBusqueda";
+            this.dniBusqueda.Size = new System.Drawing.Size(184, 22);
+            this.dniBusqueda.TabIndex = 19;
+            this.dniBusqueda.TextChanged += new System.EventHandler(this.dniBusqueda_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(63, 95);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Buscar cliente";
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 573);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dniBusqueda);
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.dgvResumen);
@@ -303,5 +326,7 @@
         private System.Windows.Forms.DataGridView dgvResumen;
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.TextBox dniBusqueda;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -15,13 +15,25 @@ namespace BLL
         {
             objCliente = new DAL.Cliente();
         }
-        public List<BUE.Cliente> listarClientes()
+        public List<BUE.Cliente> ListarClientes()
         {
             
 
-            return objCliente.listarClientes();
+            return objCliente.ListarClientes();
 
 
         }
+
+        public List<BUE.Cliente> BuscarDNI(string dni) {
+
+            if (!string.IsNullOrEmpty(dni) && dni.All(char.IsDigit))
+                return objCliente.BuscarClientesDni(dni);              
+            else
+                return null;
+
+
+        }
+
+
     }
 }
