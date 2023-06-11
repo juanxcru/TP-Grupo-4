@@ -39,10 +39,9 @@
             // 
             this.reports.AutoSize = true;
             this.reports.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports.Location = new System.Drawing.Point(334, 110);
-            this.reports.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.reports.Location = new System.Drawing.Point(250, 89);
             this.reports.Name = "reports";
-            this.reports.Size = new System.Drawing.Size(112, 42);
+            this.reports.Size = new System.Drawing.Size(90, 36);
             this.reports.TabIndex = 4;
             this.reports.Text = "Stock";
             this.reports.Click += new System.EventHandler(this.reports_Click);
@@ -50,57 +49,58 @@
             // btnCrearArticulo
             // 
             this.btnCrearArticulo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCrearArticulo.Location = new System.Drawing.Point(196, 210);
-            this.btnCrearArticulo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCrearArticulo.Location = new System.Drawing.Point(147, 171);
             this.btnCrearArticulo.Name = "btnCrearArticulo";
-            this.btnCrearArticulo.Size = new System.Drawing.Size(133, 43);
+            this.btnCrearArticulo.Size = new System.Drawing.Size(100, 35);
             this.btnCrearArticulo.TabIndex = 5;
             this.btnCrearArticulo.Text = "Crear Artículo";
             this.btnCrearArticulo.UseVisualStyleBackColor = true;
+            this.btnCrearArticulo.Click += new System.EventHandler(this.btnCrearArticulo_Click);
             // 
             // btnModificarArticulo
             // 
             this.btnModificarArticulo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnModificarArticulo.Location = new System.Drawing.Point(196, 284);
-            this.btnModificarArticulo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificarArticulo.Location = new System.Drawing.Point(147, 231);
             this.btnModificarArticulo.Name = "btnModificarArticulo";
-            this.btnModificarArticulo.Size = new System.Drawing.Size(133, 43);
+            this.btnModificarArticulo.Size = new System.Drawing.Size(100, 35);
             this.btnModificarArticulo.TabIndex = 6;
             this.btnModificarArticulo.Text = "Modificar Artículo";
             this.btnModificarArticulo.UseVisualStyleBackColor = true;
+            this.btnModificarArticulo.Click += new System.EventHandler(this.btnModificarArticulo_Click);
             // 
             // btnGestionarStock
             // 
             this.btnGestionarStock.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGestionarStock.Location = new System.Drawing.Point(451, 210);
-            this.btnGestionarStock.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGestionarStock.Location = new System.Drawing.Point(338, 171);
             this.btnGestionarStock.Name = "btnGestionarStock";
-            this.btnGestionarStock.Size = new System.Drawing.Size(133, 43);
+            this.btnGestionarStock.Size = new System.Drawing.Size(100, 35);
             this.btnGestionarStock.TabIndex = 7;
             this.btnGestionarStock.Text = "Gestionar Stock";
             this.btnGestionarStock.UseVisualStyleBackColor = true;
+            this.btnGestionarStock.Click += new System.EventHandler(this.btnGestionarStock_Click);
             // 
             // btnGenerarAlerta
             // 
             this.btnGenerarAlerta.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGenerarAlerta.Location = new System.Drawing.Point(451, 284);
-            this.btnGenerarAlerta.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenerarAlerta.Location = new System.Drawing.Point(338, 231);
             this.btnGenerarAlerta.Name = "btnGenerarAlerta";
-            this.btnGenerarAlerta.Size = new System.Drawing.Size(133, 43);
+            this.btnGenerarAlerta.Size = new System.Drawing.Size(100, 35);
             this.btnGenerarAlerta.TabIndex = 8;
             this.btnGenerarAlerta.Text = "Generar Alerta";
             this.btnGenerarAlerta.UseVisualStyleBackColor = true;
+            this.btnGenerarAlerta.Click += new System.EventHandler(this.btnGenerarAlerta_Click);
             // 
             // FormStock
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnGenerarAlerta);
             this.Controls.Add(this.btnGestionarStock);
             this.Controls.Add(this.btnModificarArticulo);
             this.Controls.Add(this.btnCrearArticulo);
             this.Controls.Add(this.reports);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormStock";
             this.Text = "Stock";
             this.ResumeLayout(false);

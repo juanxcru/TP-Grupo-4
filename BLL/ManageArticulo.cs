@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,12 @@ using System.Threading.Tasks;
 namespace BLL
 {
     public class ManageArticulo
-    {
-        private ArticuloDAL articuloDAL;
-
+    {      
         public ManageArticulo()
         {
-            articuloDAL = new ArticuloDAL();
+            
         }
+        ArticuloDAL articuloDAL = new ArticuloDAL();
 
         public Articulo ValidarArticulo(string idArticulo, int cantidad)
         {
@@ -25,6 +25,11 @@ namespace BLL
             }
 
             return articuloDAL.ValidarArticulo(idArticulo, cantidad);
+        }
+
+        public DataTable listarArticulos()
+        {
+            return articuloDAL.listarArticulos();
         }
     }
 }
