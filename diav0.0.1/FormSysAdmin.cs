@@ -75,16 +75,12 @@ namespace diav0._0._1
             ActualizarTabla();
         }
 
+        /// <summary>
+        /// Actualiza la tabla de usuarios con la información total
+        /// </summary>
         public void ActualizarTabla()
         {
             List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaDeUsuarios = gestorUsuario.ObtenerListaUsuarios();
-
-            GridUsuarios.Rows.Clear();
-
-            var combobox = (DataGridViewComboBoxColumn)GridUsuarios.Columns["Rol"];
-            combobox.DisplayMember = "Descripcion"; // Nombre de la propiedad para mostrar en el DropDownList
-            combobox.ValueMember = "ID"; // Nombre de la propiedad para obtener el valor seleccionado
-            combobox.DataSource = GetLista(); // Fuente de datos para el DropDownList
 
             ActualizarTablaUsuarios(listaDeUsuarios);
         }
@@ -96,6 +92,13 @@ namespace diav0._0._1
         /// <returns></returns>
         public void ActualizarTablaUsuarios(List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaDeUsuarios)
         {
+            GridUsuarios.Rows.Clear();
+
+            var combobox = (DataGridViewComboBoxColumn)GridUsuarios.Columns["Rol"];
+            combobox.DisplayMember = "Descripcion"; // Nombre de la propiedad para mostrar en el DropDownList
+            combobox.ValueMember = "ID"; // Nombre de la propiedad para obtener el valor seleccionado
+            combobox.DataSource = GetLista(); // Fuente de datos para el DropDownList
+
             foreach (var usuarioTuple in listaDeUsuarios)
             {
                 // Crear una nueva fila
@@ -137,11 +140,6 @@ namespace diav0._0._1
             return listaPerfiles;
         }
 
-        /// <summary>
-        /// Creo un usuario a partir de la fila seleccionada
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
             gestionarUsuario(1);
@@ -157,6 +155,11 @@ namespace diav0._0._1
             gestionarUsuario(3);
         }
 
+        /// <summary>
+        /// Gestiono el usuario a partir de la opcion solicitada.
+        /// 1 para crear, 2 para modificar, 3 para eliminar
+        /// </summary>
+        /// <param name="accion"></param>
         private void gestionarUsuario(int accion)
         {
             DataGridViewRow selectedRow = GridUsuarios.SelectedRows[0];
@@ -220,7 +223,69 @@ namespace diav0._0._1
             ActualizarTabla();
         }
 
-        
+        /// <summary>
+        /// Filtro los usuarios en funcion de la opcion elegida en el cboxBuscador
+        /// </summary>
+        private void FiltrarUsuarios()
+        {
+            // Obtener la opción seleccionada del ComboBox
+            string opcion = cboxBuscador.SelectedItem.ToString();
+
+            // Obtener el valor ingresado en el TextBox
+            string valor = txtboxBuscador.Text.ToUpper();
+
+            if (valor == null)
+            {
+                ActualizarTabla();
+                return;
+            }
+
+            // Llama a la función gestorUsuario.ObtenerListaUsuarios() para obtener la lista completa de usuarios
+            List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaUsuarios = gestorUsuario.ObtenerListaUsuarios();
+
+            // Filtrar los usuarios según la opción seleccionada y el valor ingresado
+            List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> usuariosFiltrados;
+
+            // Aplicar el filtro según la opción seleccionada y el valor ingresado
+            switch (opcion)
+            {
+                case "ID Empleado":
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Item1.IdEmpleado.ToString() == valor).ToList();
+                    break;
+                case "Nombre":
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Item1.Nombre.Contains(valor)).ToList();
+                    break;
+                case "Apellido":
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Item1.Apellido.Contains(valor)).ToList();
+                    break;
+                case "DNI":
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Item1.Dni.ToString() == valor).ToList();
+                    break;
+                case "Rol":
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Item3.Descripcion.Equals(valor, StringComparison.OrdinalIgnoreCase)).ToList();
+                    break;
+                default:
+                    usuariosFiltrados = listaUsuarios;
+                    break;
+            }
+
+            // Actualizar el DataGridView con los usuarios filtrados
+            ActualizarTablaUsuarios(usuariosFiltrados);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            FiltrarUsuarios();
+        }
+
+        private void txtboxBuscador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                FiltrarUsuarios();
+                e.Handled = true; // Para evitar que se agregue un salto de línea en el TextBox
+            }
+        }
     }
 
 }

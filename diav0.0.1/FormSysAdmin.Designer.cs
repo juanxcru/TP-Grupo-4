@@ -35,9 +35,9 @@ namespace diav0._0._1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSysAdmin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnBajaUsuario = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -71,11 +71,12 @@ namespace diav0._0._1
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel30 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.txtboxBuscador = new System.Windows.Forms.TextBox();
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboxBuscador = new System.Windows.Forms.ComboBox();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
@@ -91,6 +92,7 @@ namespace diav0._0._1
             this.panel15.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel30.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel25.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -357,14 +359,14 @@ namespace diav0._0._1
             this.GridUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridUsuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
             this.GridUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdEmpleado,
@@ -377,16 +379,16 @@ namespace diav0._0._1
             this.GridUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GridUsuarios.Location = new System.Drawing.Point(62, 177);
             this.GridUsuarios.Name = "GridUsuarios";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.GridUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridUsuarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.GridUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.GridUsuarios.RowTemplate.Height = 27;
             this.GridUsuarios.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.GridUsuarios.Size = new System.Drawing.Size(698, 265);
@@ -506,7 +508,8 @@ namespace diav0._0._1
             // panel30
             // 
             this.panel30.BackColor = System.Drawing.Color.White;
-            this.panel30.Controls.Add(this.textBox2);
+            this.panel30.Controls.Add(this.pictureBox2);
+            this.panel30.Controls.Add(this.txtboxBuscador);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel30.Location = new System.Drawing.Point(183, 14);
             this.panel30.Margin = new System.Windows.Forms.Padding(2);
@@ -514,15 +517,26 @@ namespace diav0._0._1
             this.panel30.Size = new System.Drawing.Size(577, 25);
             this.panel30.TabIndex = 33;
             // 
-            // textBox2
+            // pictureBox2
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(0, 0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(577, 18);
-            this.textBox2.TabIndex = 32;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(550, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(22, 20);
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // txtboxBuscador
+            // 
+            this.txtboxBuscador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtboxBuscador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtboxBuscador.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxBuscador.Location = new System.Drawing.Point(0, 0);
+            this.txtboxBuscador.Name = "txtboxBuscador";
+            this.txtboxBuscador.Size = new System.Drawing.Size(577, 18);
+            this.txtboxBuscador.TabIndex = 32;
+            txtboxBuscador.KeyPress += txtboxBuscador_KeyPress;
             // 
             // panel28
             // 
@@ -547,7 +561,7 @@ namespace diav0._0._1
             // panel25
             // 
             this.panel25.BackColor = System.Drawing.Color.White;
-            this.panel25.Controls.Add(this.comboBox2);
+            this.panel25.Controls.Add(this.cboxBuscador);
             this.panel25.Controls.Add(this.panel18);
             this.panel25.Controls.Add(this.panel31);
             this.panel25.Controls.Add(this.panel26);
@@ -558,22 +572,22 @@ namespace diav0._0._1
             this.panel25.Size = new System.Drawing.Size(183, 47);
             this.panel25.TabIndex = 30;
             // 
-            // comboBox2
+            // cboxBuscador
             // 
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cboxBuscador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboxBuscador.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboxBuscador.FormattingEnabled = true;
+            this.cboxBuscador.Items.AddRange(new object[] {
             "ID Empleado",
             "Nombre",
             "Apellido",
-            "Perfil"});
-            this.comboBox2.Location = new System.Drawing.Point(78, 11);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(105, 25);
-            this.comboBox2.TabIndex = 35;
-            this.comboBox2.Text = "Select";
+            "Rol"});
+            this.cboxBuscador.Location = new System.Drawing.Point(78, 11);
+            this.cboxBuscador.Name = "cboxBuscador";
+            this.cboxBuscador.Size = new System.Drawing.Size(105, 25);
+            this.cboxBuscador.TabIndex = 35;
+            this.cboxBuscador.Text = "Select";
             // 
             // panel18
             // 
@@ -666,6 +680,7 @@ namespace diav0._0._1
             this.panel24.ResumeLayout(false);
             this.panel30.ResumeLayout(false);
             this.panel30.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel25.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -703,13 +718,13 @@ namespace diav0._0._1
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtboxBuscador;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.Panel panel26;
-        private ComboBox comboBox2;
+        private ComboBox cboxBuscador;
         private Panel panel18;
         private DataGridView GridUsuarios;
         private DataGridViewTextBoxColumn IdEmpleado;
@@ -718,5 +733,6 @@ namespace diav0._0._1
         private DataGridViewTextBoxColumn dni;
         private DataGridViewTextBoxColumn username;
         private DataGridViewComboBoxColumn Rol;
+        private PictureBox pictureBox2;
     }
 }
