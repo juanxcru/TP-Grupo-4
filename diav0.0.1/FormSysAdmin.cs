@@ -236,7 +236,7 @@ namespace diav0._0._1
             // Obtener el valor ingresado en el TextBox
             string valor = txtboxBuscador.Text.ToUpper();
 
-            if (valor == null || string.IsNullOrEmpty(opcion))
+            if (string.IsNullOrEmpty(opcion) || string.IsNullOrEmpty(valor))
             {
                 ActualizarTabla();
                 return;
