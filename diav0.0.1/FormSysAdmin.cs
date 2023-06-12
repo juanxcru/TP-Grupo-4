@@ -207,7 +207,7 @@ namespace diav0._0._1
             else if (resultado == 0)
             {
                 if (accion == 1)
-                    mensaje = "Usuario creado con éxito. Contraseña generada: " + password;
+                    mensaje = "Usuario creado con éxito. \nContraseña generada: " + password;
                 if (accion == 2 || accion == 3)
                     mensaje = "Usuario no existente en la base de datos";
             }
