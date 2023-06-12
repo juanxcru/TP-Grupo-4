@@ -19,8 +19,6 @@ namespace diav0._0._1
     {
         private BUE.Usuario objUsuario;
         private BLL.SysAdmin gestorUsuario;
-        // Declarar el BindingSource como miembro de la clase
-        private BindingSource bindingSource;
 
         private static string GenerarContraseñaAleatoria()
         {
@@ -79,9 +77,9 @@ namespace diav0._0._1
         /// </summary>
         public void ActualizarTabla()
         {
-            List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaDeUsuarios = gestorUsuario.ObtenerListaUsuarios();
+            List<BUE.Usuario> usuarios = gestorUsuario.ObtenerListaUsuarios();
 
-            ActualizarTablaUsuarios(listaDeUsuarios);
+            ActualizarTablaUsuarios(usuarios);
         }
 
         /// <summary>
@@ -89,27 +87,27 @@ namespace diav0._0._1
         /// </summary>
         /// <param name="listaDeUsuarios"></param>
         /// <returns></returns>
-        public void ActualizarTablaUsuarios(List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaDeUsuarios)
+        public void ActualizarTablaUsuarios(List<BUE.Usuario> usuarios)
         {
             GridUsuarios.Rows.Clear();
-
+           
             var combobox = (DataGridViewComboBoxColumn)GridUsuarios.Columns["Rol"];
             combobox.DisplayMember = "Descripcion"; // Nombre de la propiedad para mostrar en el DropDownList
             combobox.ValueMember = "ID"; // Nombre de la propiedad para obtener el valor seleccionado
             combobox.DataSource = GetLista(); // Fuente de datos para el DropDownList
 
-            foreach (var usuarioTuple in listaDeUsuarios)
+            foreach (var user in usuarios)
             {
                 // Crear una nueva fila
                 DataGridViewRow nuevaFila = new DataGridViewRow();
 
                 // Agregar celdas a la fila del DataGrid
-                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item1.IdEmpleado });
-                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item1.Nombre });
-                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item1.Apellido });
-                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item1.Dni });
-                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = usuarioTuple.Item2.UserName });
-                int Rol = usuarioTuple.Item3.ID;
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = user.Empleado.IdEmpleado });
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = user.Empleado.Nombre });
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = user.Empleado.Apellido });
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = user.Empleado.Dni });
+                nuevaFila.Cells.Add(new DataGridViewTextBoxCell { Value = user.UserName });
+                int Rol = user.Perfil.ID;
 
                 // Crear una celda de tipo DataGridViewComboBoxCell para la columna "Rol"
                 DataGridViewComboBoxCell comboBoxCell = new DataGridViewComboBoxCell();
@@ -161,6 +159,12 @@ namespace diav0._0._1
         /// <param name="accion"></param>
         private void gestionarUsuario(int accion)
         {
+            if (GridUsuarios.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar una fila.");
+                return;
+            }
+
             DataGridViewRow selectedRow = GridUsuarios.SelectedRows[0];
 
             // Obtener los valores de la fila seleccionada
@@ -191,42 +195,34 @@ namespace diav0._0._1
                 resultado = gestorUsuario.CrearUsuario(username, password, nombre, apellido, rol, dni);
             }
             else if (accion == 2)
-            {
                 // Modificar el usuario y obtener el resultado
                 resultado = gestorUsuario.EditarUsuario(idEmpleado, username, nombre, apellido, rol, dni);
-            }
             else if (accion == 3)
-            {
-                // Eliminaru usuario y obtener su resultado
+                // Eliminar usuario y obtener su resultado
                 resultado = gestorUsuario.BajaUsuario(idEmpleado);
-            }
 
             // Mostrar el mensaje correspondiente según el resultado
             if (resultado == 1)
-            {
                 mensaje = "Username repetido. Intente nuevamente.";
-            }
-            else if (resultado == 2)
-            {
-                mensaje = "DNI repetido. Intente nuevamente.";
-            }
             else if (resultado == 0)
             {
                 if (accion == 1)
                     mensaje = "Usuario creado con éxito. Contraseña generada: " + password;
+                if (accion == 2 || accion == 3)
+                    mensaje = "Usuario no existente en la base de datos";
+            }
+            else if (resultado == 4)
+            {
                 if (accion == 2)
                     mensaje = "Usuario modificado con éxito.";
                 if (accion == 3)
-                    mensaje = "Usuario eliminado con éxito" + password;
+                    mensaje = "Usuario eliminado con éxito";
             }
             else
-            {
                 mensaje = "Hubo un error";
-            }
 
             // Mostrar el cartel con la información de la fila afectada y el mensaje
             MessageFilaAfectada(selectedRow, mensaje);
-            ActualizarTabla();
         }
 
         /// <summary>
@@ -240,35 +236,35 @@ namespace diav0._0._1
             // Obtener el valor ingresado en el TextBox
             string valor = txtboxBuscador.Text.ToUpper();
 
-            if (valor == null || string.IsNullOrEmpty(opcion))
+            if (string.IsNullOrEmpty(opcion) || string.IsNullOrEmpty(valor))
             {
                 ActualizarTabla();
                 return;
             }
 
             // Llama a la función gestorUsuario.ObtenerListaUsuarios() para obtener la lista completa de usuarios
-            List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaUsuarios = gestorUsuario.ObtenerListaUsuarios();
+            List<BUE.Usuario> listaUsuarios = gestorUsuario.ObtenerListaUsuarios();
 
             // Filtrar los usuarios según la opción seleccionada y el valor ingresado
-            List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> usuariosFiltrados;
+            List<BUE.Usuario> usuariosFiltrados;
 
             // Aplicar el filtro según la opción seleccionada y el valor ingresado
             switch (opcion)
             {
                 case "ID Empleado":
-                    usuariosFiltrados = listaUsuarios.Where(u => u.Item1.IdEmpleado.ToString() == valor).ToList();
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Empleado.IdEmpleado.ToString() == valor).ToList();
                     break;
                 case "Nombre":
-                    usuariosFiltrados = listaUsuarios.Where(u => u.Item1.Nombre.Contains(valor)).ToList();
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Empleado.Nombre.Contains(valor)).ToList();
                     break;
                 case "Apellido":
-                    usuariosFiltrados = listaUsuarios.Where(u => u.Item1.Apellido.Contains(valor)).ToList();
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Empleado.Apellido.Contains(valor)).ToList();
                     break;
                 case "DNI":
-                    usuariosFiltrados = listaUsuarios.Where(u => u.Item1.Dni.ToString() == valor).ToList();
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Empleado.Dni.ToString() == valor).ToList();
                     break;
                 case "Rol":
-                    usuariosFiltrados = listaUsuarios.Where(u => u.Item3.Descripcion.StartsWith(valor, StringComparison.OrdinalIgnoreCase)).ToList();
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Perfil.Descripcion.StartsWith(valor, StringComparison.OrdinalIgnoreCase)).ToList();
                     break;
                 default:
                     usuariosFiltrados = listaUsuarios;

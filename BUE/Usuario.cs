@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BUE
 {
-    public class Usuario : IEntidad
+    public class Usuario
     {
         private int _id;
         public int ID {

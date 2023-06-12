@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using BUE;
+using System.Net;
 
 namespace BLL
 {
@@ -27,12 +28,11 @@ namespace BLL
         {
             UsuarioDAL userIngresado = new UsuarioDAL();
 
-            int rep = userIngresado.usuarioRepetido(0, nombreUsuario, dni);
+            int rep = userIngresado.usuarioRepetido(0, nombreUsuario);
 
             switch (rep)
             {
                 case 1: return 1;
-                case 2: return 2;
             }
 
             userIngresado.CrearUsuario(nombreUsuario, password, nombre, apellido, perfil, dni);
@@ -44,61 +44,68 @@ namespace BLL
         {
             UsuarioDAL userIngresado = new UsuarioDAL();
 
-            int rep = userIngresado.usuarioRepetido(IDEmpleado, nombreUsuario, dni);
+            int rep = userIngresado.usuarioRepetido(IDEmpleado, nombreUsuario);
 
             switch (rep)
             {
                 case 1: return 1;
-                case 2: return 2;
+                case 0: return 0;
+
             }
 
             userIngresado.EditarUsuario(IDEmpleado, nombreUsuario, nombre, apellido, perfil, dni);
 
-            return 0;
+            return 4;
         }
 
         public int BajaUsuario(int IDEmpleado)
         {
             UsuarioDAL userIngresado = new UsuarioDAL();
 
+            int rep = userIngresado.usuarioRepetido(IDEmpleado,"");
+
+            switch (rep)
+            {
+                case 0: return 0;
+            }
             userIngresado.BajaUsuario(IDEmpleado);
-
-            return 0;
-
+            return 4;
         }
 
         /// <summary>
         /// Lista de usuarios con su información completa
         /// </summary>
         /// <returns></returns>
-        public List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> ObtenerListaUsuarios()
+        public List<BUE.Usuario> ObtenerListaUsuarios()
         {
             UsuarioDAL usuarioDAL = new UsuarioDAL();
             DataTable dt = usuarioDAL.ActualizarTabla();
 
-            List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)> listaUsuarios = new List<(BUE.Empleado, BUE.Usuario, BUE.Perfil)>();
+            List <BUE.Usuario> usuarios = new List<BUE.Usuario>();
 
             foreach (DataRow dr in dt.Rows)
             {
+                BUE.Usuario user = new BUE.Usuario();
+                user.ID = Convert.ToInt32(dr["id_usuario"]);
+                user.UserName = dr["nombre_usuario"].ToString();
+                user.Password = dr["password"].ToString();
+
                 BUE.Empleado empleado = new BUE.Empleado();
                 empleado.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
                 empleado.Nombre = dr["nombre"].ToString();
                 empleado.Apellido = dr["apellido"].ToString();
                 empleado.Dni = Convert.ToInt32(dr["dni_empleado"]);
 
-                BUE.Usuario usuario = new BUE.Usuario();
-                usuario.ID = Convert.ToInt32(dr["id_usuario"]);
-                usuario.UserName = dr["nombre_usuario"].ToString();
-                usuario.Password = dr["password"].ToString();
-
                 BUE.Perfil perfil = new BUE.Perfil();
                 perfil.ID = Convert.ToInt32(dr["id_perfil"]);
                 perfil.Descripcion = dr["descripcion"].ToString();
 
-                listaUsuarios.Add((empleado, usuario, perfil));
+                user.Empleado = empleado;
+                user.Perfil = perfil;
+                usuarios.Add(user);
             }
 
-            return listaUsuarios;
+            return usuarios;
         }
 
         public List<BUE.Perfil> getPerfiles()
