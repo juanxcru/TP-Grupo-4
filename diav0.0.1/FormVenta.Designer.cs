@@ -62,7 +62,7 @@
             this.label1.Location = new System.Drawing.Point(60, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 17);
+            this.label1.Size = new System.Drawing.Size(180, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ingrese el codigo del articulo";
             // 
@@ -72,7 +72,7 @@
             this.label2.Location = new System.Drawing.Point(333, 28);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 17);
+            this.label2.Size = new System.Drawing.Size(122, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Ingrese la cantidad";
             // 
@@ -108,7 +108,7 @@
             this.label3.Location = new System.Drawing.Point(59, 158);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 17);
+            this.label3.Size = new System.Drawing.Size(59, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Articulos";
             // 
@@ -118,7 +118,7 @@
             this.label4.Location = new System.Drawing.Point(59, 448);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 17);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Cambio: $";
             // 
@@ -128,7 +128,7 @@
             this.label5.Location = new System.Drawing.Point(400, 448);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 17);
+            this.label5.Size = new System.Drawing.Size(103, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "Total a Pagar: $";
             // 
@@ -138,7 +138,7 @@
             this.lblTotalAPagar.Location = new System.Drawing.Point(507, 448);
             this.lblTotalAPagar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalAPagar.Name = "lblTotalAPagar";
-            this.lblTotalAPagar.Size = new System.Drawing.Size(28, 17);
+            this.lblTotalAPagar.Size = new System.Drawing.Size(25, 16);
             this.lblTotalAPagar.TabIndex = 8;
             this.lblTotalAPagar.Text = "0.0";
             // 
@@ -148,7 +148,7 @@
             this.lblCambio.Location = new System.Drawing.Point(126, 448);
             this.lblCambio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCambio.Name = "lblCambio";
-            this.lblCambio.Size = new System.Drawing.Size(28, 17);
+            this.lblCambio.Size = new System.Drawing.Size(25, 16);
             this.lblCambio.TabIndex = 9;
             this.lblCambio.Text = "0.0";
             // 
@@ -158,7 +158,7 @@
             this.btnIngresarArticulo.Margin = new System.Windows.Forms.Padding(4);
             this.btnIngresarArticulo.Name = "btnIngresarArticulo";
             this.btnIngresarArticulo.Size = new System.Drawing.Size(100, 63);
-            this.btnIngresarArticulo.TabIndex = 10;
+            this.btnIngresarArticulo.TabIndex = 6;
             this.btnIngresarArticulo.Text = "Ingresar articulos";
             this.btnIngresarArticulo.UseVisualStyleBackColor = true;
             this.btnIngresarArticulo.Click += new System.EventHandler(this.btnIngresarArticulo_Click);
@@ -169,18 +169,19 @@
             this.btnEliminarArticulo.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(100, 63);
-            this.btnEliminarArticulo.TabIndex = 11;
+            this.btnEliminarArticulo.TabIndex = 7;
             this.btnEliminarArticulo.Text = "Eliminar articulos";
             this.btnEliminarArticulo.UseVisualStyleBackColor = true;
             this.btnEliminarArticulo.Click += new System.EventHandler(this.btnEliminarArticulo_Click);
             // 
             // btnCancelarVenta
             // 
+            this.btnCancelarVenta.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelarVenta.Location = new System.Drawing.Point(314, 484);
             this.btnCancelarVenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelarVenta.Name = "btnCancelarVenta";
             this.btnCancelarVenta.Size = new System.Drawing.Size(100, 63);
-            this.btnCancelarVenta.TabIndex = 12;
+            this.btnCancelarVenta.TabIndex = 8;
             this.btnCancelarVenta.Text = "Cancelar Venta";
             this.btnCancelarVenta.UseVisualStyleBackColor = true;
             this.btnCancelarVenta.Click += new System.EventHandler(this.btnCancelarVenta_Click);
@@ -191,7 +192,7 @@
             this.btnFinalizarVenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnFinalizarVenta.Name = "btnFinalizarVenta";
             this.btnFinalizarVenta.Size = new System.Drawing.Size(100, 63);
-            this.btnFinalizarVenta.TabIndex = 13;
+            this.btnFinalizarVenta.TabIndex = 9;
             this.btnFinalizarVenta.Text = "Revisar venta";
             this.btnFinalizarVenta.UseVisualStyleBackColor = true;
             this.btnFinalizarVenta.Click += new System.EventHandler(this.btnFinalizarVenta_Click);
@@ -202,7 +203,7 @@
             this.lblApellidoNombreCliente.Enabled = false;
             this.lblApellidoNombreCliente.Location = new System.Drawing.Point(573, 64);
             this.lblApellidoNombreCliente.Name = "lblApellidoNombreCliente";
-            this.lblApellidoNombreCliente.Size = new System.Drawing.Size(123, 17);
+            this.lblApellidoNombreCliente.Size = new System.Drawing.Size(120, 16);
             this.lblApellidoNombreCliente.TabIndex = 14;
             this.lblApellidoNombreCliente.Text = "Apellido y Nombre";
             this.lblApellidoNombreCliente.Visible = false;
@@ -213,7 +214,7 @@
             this.lblDNI.Enabled = false;
             this.lblDNI.Location = new System.Drawing.Point(573, 138);
             this.lblDNI.Name = "lblDNI";
-            this.lblDNI.Size = new System.Drawing.Size(31, 17);
+            this.lblDNI.Size = new System.Drawing.Size(31, 16);
             this.lblDNI.TabIndex = 15;
             this.lblDNI.Text = "DNI";
             this.lblDNI.Visible = false;
@@ -243,7 +244,7 @@
             this.lblCliente.Location = new System.Drawing.Point(334, 95);
             this.lblCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(51, 17);
+            this.lblCliente.Size = new System.Drawing.Size(49, 16);
             this.lblCliente.TabIndex = 18;
             this.lblCliente.Text = "Cliente";
             // 
@@ -253,7 +254,7 @@
             this.dniBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.dniBusqueda.Name = "dniBusqueda";
             this.dniBusqueda.Size = new System.Drawing.Size(184, 22);
-            this.dniBusqueda.TabIndex = 19;
+            this.dniBusqueda.TabIndex = 4;
             this.dniBusqueda.TextChanged += new System.EventHandler(this.DniBusqueda_TextChanged);
             // 
             // label6
@@ -262,7 +263,7 @@
             this.label6.Location = new System.Drawing.Point(63, 95);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 17);
+            this.label6.Size = new System.Drawing.Size(92, 16);
             this.label6.TabIndex = 20;
             this.label6.Text = "Buscar cliente";
             // 
@@ -271,8 +272,8 @@
             this.txtNombreCliente.Enabled = false;
             this.txtNombreCliente.Location = new System.Drawing.Point(337, 123);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(100, 22);
-            this.txtNombreCliente.TabIndex = 21;
+            this.txtNombreCliente.Size = new System.Drawing.Size(199, 22);
+            this.txtNombreCliente.TabIndex = 5;
             // 
             // lblEmail
             // 
@@ -280,7 +281,7 @@
             this.lblEmail.Enabled = false;
             this.lblEmail.Location = new System.Drawing.Point(573, 101);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(42, 17);
+            this.lblEmail.Size = new System.Drawing.Size(42, 16);
             this.lblEmail.TabIndex = 22;
             this.lblEmail.Text = "Email";
             this.lblEmail.Visible = false;
@@ -314,8 +315,10 @@
             // 
             // FormVenta
             // 
+            this.AcceptButton = this.btnIngresarArticulo;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelarVenta;
             this.ClientSize = new System.Drawing.Size(1067, 573);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtDni);

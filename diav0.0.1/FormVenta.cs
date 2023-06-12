@@ -41,8 +41,17 @@ namespace diav0._0._1
 
         private void btnIngresarArticulo_Click(object sender, EventArgs e)
         {
-            string idArticulo = txtIdArticulo.Text;
-            int cantidad = int.Parse(txtCantidadArticulos.Text);
+            string idArticulo = "";
+            int cantidad = 0;
+            if (string.IsNullOrEmpty(txtCantidadArticulos.Text))
+                return;
+            else
+                 cantidad = int.Parse(txtCantidadArticulos.Text);
+            if (string.IsNullOrEmpty(txtIdArticulo.Text))
+                return;
+            else
+                idArticulo = txtIdArticulo.Text;
+
 
             Articulo objArticulo = gestorArticulo.ValidarArticulo(idArticulo, cantidad);
 
@@ -53,8 +62,14 @@ namespace diav0._0._1
             else
             {
                 //ItemVenta itemVenta = new ItemVenta(cantidad, objArticulo);
-                gestorVenta.AgregarArticuloAVenta(objArticulo, cantidad, objVenta);
-                ActualizarListBoxArticulos();
+                
+                
+                    if(gestorVenta.AgregarArticuloAVenta(objArticulo, cantidad, objVenta))
+                        ActualizarListBoxArticulos();
+                    else
+                        MessageBox.Show("No hay stock");
+                
+
             }
         }
 
@@ -123,6 +138,7 @@ namespace diav0._0._1
                 {
 
                     MessageBox.Show("Venta finalizada");
+                    gestorVenta.RestarStock(objVenta);
                     LimpiarCampos();
                 }
                 else
@@ -130,7 +146,7 @@ namespace diav0._0._1
 
                     MessageBox.Show("Venta no guardada");
                 }
-                //MessageBox.Show($"Venta {objVenta.IdVenta} finalizada" );
+                
                 
                 return;
             
@@ -139,10 +155,13 @@ namespace diav0._0._1
             if(!string.IsNullOrEmpty(txtIdArticulo.Text) && !string.IsNullOrEmpty(txtCantidadArticulos.Text) && !string.IsNullOrEmpty(dniBusqueda.Text) )
             {
                 lblApellidoNombreCliente.Visible = true;
+                txtApellidoNombreCliente.Visible = true;
                 txtApellidoNombreCliente.Text = objCliente.Apellido + " " + objCliente.Nombre;
                 lblDNI.Visible = true;
+                txtDni.Visible = true;
                 txtDni.Text = objCliente.Dni.ToString();
                 lblEmail.Visible = true;
+                txtEmail.Visible = true;
                 txtEmail.Text = objCliente.Email;
 
 
@@ -194,7 +213,7 @@ namespace diav0._0._1
         }
         private void LimpiarCampos()
         {
-
+            dniBusqueda.Text = "";
             objVenta.ListaArticulos.Clear();
             lboxArticulos.Items.Clear();
             txtIdArticulo.Text = "";
@@ -225,7 +244,7 @@ namespace diav0._0._1
                 
                 btnFinalizarVenta.Text = "Revisar venta";
 
-                objVenta = new Venta();
+                objVenta = new Venta(objVenta.IdEmpleado);
 
             }
 
@@ -238,7 +257,7 @@ namespace diav0._0._1
 
             objCliente = gestorCliente.BuscarDni(dniBusqueda.Text);
             if (objCliente != null)
-                txtNombreCliente.Text = objCliente.Nombre + objCliente.Apellido;
+                txtNombreCliente.Text = objCliente.Nombre +" "+ objCliente.Apellido;
             
         }
     }
