@@ -46,7 +46,7 @@
     <Compile Include="DALCategoria.cs" />
     <Compile Include="DALMarcas.cs" />
     <Compile Include="DALRepositor.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

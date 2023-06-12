@@ -116,5 +116,19 @@ namespace diav0._0._1
         {
 
         }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            //Limpio campos
+            txtDescripcion.Text = "";
+            nudNuevoPrecio.Text = "";
+            txtCategoria.Text = "";
+            txtMarca.Text = "";
+            txtPrecio.Text = "";
+            
+            cmbNuevaCategoria.Enabled = false;
+            cmbNuevaMarca.Enabled = false;
+            nudNuevoPrecio.Enabled = false;
+        }
     }
 }

@@ -95,5 +95,15 @@ namespace diav0._0._1
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            //Limpio campos
+            txtDescripcion.Text = "";
+            nudPrecio.Text = "";
+            nudCantidad.Text = "";
+            cmbCategoria.Text = "";
+            cmbMarca.Text = "";
+        }
     }
 }
