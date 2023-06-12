@@ -93,6 +93,7 @@ namespace diav0._0._1
         private void ActualizarTotalAPagar()
         {
             double totalAPagar = gestorVenta.CalcularTotal(objVenta);
+            
             lblTotalAPagar.Text = totalAPagar.ToString();
         }
 
@@ -169,6 +170,7 @@ namespace diav0._0._1
 
                 btnEliminarArticulo.Enabled = false;
                 btnIngresarArticulo.Enabled = false;
+                objVenta.MontoTotal = gestorVenta.CalcularTotal(objVenta);
                 btnFinalizarVenta.Text = "Finalizar Venta";
 
 

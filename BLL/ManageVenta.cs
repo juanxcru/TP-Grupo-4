@@ -30,6 +30,7 @@ namespace BLL
             {
                 total += itemVenta.Articulo.Precio * itemVenta.Cantidad;
             }
+            
             return total;
         }
 
@@ -42,7 +43,7 @@ namespace BLL
                 {
                     iv.Cantidad += cantidad;
                     iv.SubTotal = iv.Cantidad * articulo.Precio;
-                    venta.MontoTotal += iv.SubTotal;
+                    
                     return true;
                 }
                 else
