@@ -55,5 +55,14 @@ namespace BUE
             get { return _marca; }
             set { _marca = value; }
         }
+        private Categoria _categoria;
+
+        public Categoria Categoria
+        {
+            get { return _categoria; }
+            set { _categoria = value; }
+        }
+
+
     }
 }
