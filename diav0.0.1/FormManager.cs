@@ -45,6 +45,33 @@ namespace diav0._0._1
 
         }
 
+        private void BotonMensual_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            BUE.Venta[] ventas = Usuario.Reporte(true);
+            foreach (BUE.Venta venta in ventas)
+            {
+                if (venta != null)
+                {
+                    dataGridView1.Rows.Add(venta.IdVenta, venta.FechaYHora, venta.MontoTotal);
+                }
+            }
+        }
 
+        private void BotonSemanal_Click(object sender, EventArgs e)
+        {
+            {
+                dataGridView1.Rows.Clear();
+                BUE.Venta[] ventas = Usuario.Reporte(false);
+                foreach (BUE.Venta venta in ventas)
+                {
+                    if (venta != null)
+                    {
+                        dataGridView1.Rows.Add(venta.IdVenta, venta.FechaYHora, venta.MontoTotal);
+                    }
+                }
+            }
+        }
     }
+    
 }

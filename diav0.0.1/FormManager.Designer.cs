@@ -98,6 +98,7 @@
             this.BotonSemanal.TabIndex = 19;
             this.BotonSemanal.Text = "Semanal";
             this.BotonSemanal.UseVisualStyleBackColor = true;
+            this.BotonSemanal.Click += new System.EventHandler(this.BotonSemanal_Click);
             // 
             // BotonMensual
             // 
@@ -107,6 +108,7 @@
             this.BotonMensual.TabIndex = 18;
             this.BotonMensual.Text = "Mensual";
             this.BotonMensual.UseVisualStyleBackColor = true;
+            this.BotonMensual.Click += new System.EventHandler(this.BotonMensual_Click);
             // 
             // BotonBuscar
             // 

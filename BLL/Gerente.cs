@@ -36,5 +36,42 @@ namespace BLL
             return ventas;
 
         }
+
+        public BUE.Venta[] Reporte(bool menosem)
+        {
+            DAL.VentasDAL data = new DAL.VentasDAL();
+            DataTable dt = data.MostrarVentas();
+
+            BUE.Venta[] ventas = new BUE.Venta[dt.Rows.Count];
+
+            DateTime fechaRelevante;
+
+            if (menosem)
+            {
+                fechaRelevante = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            }
+            else
+            {
+                fechaRelevante = DateTime.Now.AddDays(-7);
+            }
+
+            int index2 = 0;
+            for (int index = 0; index < dt.Rows.Count; index++)
+            {
+                BUE.Venta ventaindex = new BUE.Venta();
+                if (DateTime.Parse(dt.Rows[index]["fecha_hora"].ToString()) > fechaRelevante)
+                {
+                    ventaindex.IdVenta = int.Parse(dt.Rows[index]["id_venta"].ToString());
+                    ventaindex.FechaYHora = DateTime.Parse(dt.Rows[index]["fecha_hora"].ToString());
+                    ventaindex.MontoTotal = double.Parse(dt.Rows[index]["monto_total"].ToString());
+                    ventas[index2] = ventaindex;
+                    index2++;
+                }
+
+            }
+
+            return ventas;
+
+        }
     }
 }
