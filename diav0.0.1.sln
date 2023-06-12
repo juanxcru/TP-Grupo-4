@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUE", "BUE\BUE.csproj", "{973D67C3-BABC-4F07-AD08-27983A8FCF0D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script SQL", "Script SQL", "{BD285DBC-6C6C-40B9-B270-1F5ACF0CC847}"
+	ProjectSection(SolutionItems) = preProject
+		ScriptSQL.sql = ScriptSQL.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
