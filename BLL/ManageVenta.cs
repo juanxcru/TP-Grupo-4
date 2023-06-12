@@ -78,14 +78,14 @@ namespace BLL
             try
             {
                 objVenta.GrabarVenta(nuevaVenta);
-                
             }
             catch (Exception)
             {
-
+                
                 return false;
             }
 
+                
             
             return true;
         }

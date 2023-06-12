@@ -283,6 +283,20 @@ namespace DAL
 
             return objParametro;
         }
+        public SqlParameter crearParametro(string pNombre, DataTable pValor)
+        {
+
+            SqlParameter objParametro = new SqlParameter();
+
+            objParametro.ParameterName = pNombre;
+            objParametro.Value = pValor;
+            objParametro.SqlDbType = SqlDbType.Structured;
+            //objParametro.TypeName = "dbo.TablaItems";
+
+            return objParametro;
+        }
+
+
         #endregion
 
 

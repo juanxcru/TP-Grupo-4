@@ -15,41 +15,29 @@ namespace DAL
              
             Conexion objConexion = new Conexion();
 
-            SqlParameter[] parametros = new SqlParameter[4];
+            SqlParameter[] parametros = new SqlParameter[5];
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("id_articulo", typeof(int));
+            dt.Columns.Add("cantidad", typeof(double));
+            dt.Columns.Add("subtotal", typeof(double));
+
+            foreach (BUE.ItemVenta item in nuevaVenta.ListaArticulos)
+            {
+                dt.Rows.Add(item.Articulo.IdArticulo , item.Cantidad , item.SubTotal);
+            }
+
 
             parametros[0] = objConexion.crearParametro("@id_cli ", nuevaVenta.IdCliente);
             parametros[1] = objConexion.crearParametro("@id_emp", nuevaVenta.IdEmpleado);
             parametros[2] = objConexion.crearParametro("@fechahora", nuevaVenta.FechaYHora);
             parametros[3] = objConexion.crearParametro("@monto", nuevaVenta.MontoTotal);
+            parametros[4] = objConexion.crearParametro("@items", dt);
+            
+            objConexion.EscribirPorStoreProcedure("sp_guardar_venta_e_items", parametros);
 
-           int filasAfectadas = objConexion.EscribirPorStoreProcedure("sp_guardar_venta", parametros);
+            return true;
 
-
-
-            if (filasAfectadas > 0)
-            {
-              
-
-                parametros = new SqlParameter[2];
-
-                foreach (BUE.ItemVenta iv in nuevaVenta.ListaArticulos)
-                {
-         
-
-                    parametros[0] = objConexion.crearParametro("@id_venta", nuevaVenta.IdVenta);
-
-                    parametros[1] = objConexion.crearParametro("@cant", iv.Cantidad);
-                    parametros[2] = objConexion.crearParametro("@subtot", iv.SubTotal);
-
-                    objConexion.EscribirPorStoreProcedure("sp_guardar_items_venta", parametros);
-
-                }
-
-
-                return true;
-            }
-            else
-                return false;
 
         }
     }

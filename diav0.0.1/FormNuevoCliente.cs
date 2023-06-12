@@ -79,7 +79,7 @@ namespace diav0._0._1
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close()
+            this.Close();
         }
     }
 }

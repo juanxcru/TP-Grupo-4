@@ -165,7 +165,7 @@ namespace diav0._0._1
            
 
 
-            //poner los datos del cliente seleccionado (si es el generico, o no se elije, va vacio)
+            
            
         }
 
