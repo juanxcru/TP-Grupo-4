@@ -56,8 +56,7 @@ namespace diav0._0._1
             string rol = fila.Cells["Rol"].Value.ToString();
 
             // Construir la información de la fila afectada
-            string infoFilaAfectada = $"Empleado: {idEmpleado}\n" +
-                                      $"Nombre: {nombre}\n" +
+            string infoFilaAfectada = $"Nombre: {nombre}\n" +
                                       $"Apellido: {apellido}\n" +
                                       $"DNI: {dni}\n" +
                                       $"Username: {username}\n" +
@@ -166,11 +165,18 @@ namespace diav0._0._1
 
             // Obtener los valores de la fila seleccionada
             int idEmpleado = Convert.ToInt32(selectedRow.Cells["IDEmpleado"].Value);
-            string nombre = selectedRow.Cells["Nombre"].Value.ToString();
-            string apellido = selectedRow.Cells["Apellido"].Value.ToString();
+            string nombre = selectedRow.Cells["Nombre"].Value?.ToString()?.ToUpper() ?? string.Empty;
+            string apellido = selectedRow.Cells["Apellido"].Value?.ToString()?.ToUpper() ?? string.Empty;
             int dni = Convert.ToInt32(selectedRow.Cells["DNI"].Value);
-            string username = selectedRow.Cells["Username"].Value.ToString();
+            string username = selectedRow.Cells["Username"].Value?.ToString()?.ToLower() ?? string.Empty;
             int rol = Convert.ToInt32(selectedRow.Cells["Rol"].Value);
+
+            // Validar que no haya campos nulos
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || string.IsNullOrEmpty(username) || dni == 0 || rol == 0)
+            {
+                MessageBox.Show("Debe completar todos los campos obligatorios.");
+                return;
+            }
 
             int resultado = 0;
             string mensaje = "";
@@ -229,12 +235,12 @@ namespace diav0._0._1
         private void FiltrarUsuarios()
         {
             // Obtener la opción seleccionada del ComboBox
-            string opcion = cboxBuscador.SelectedItem.ToString();
+            string opcion = cboxBuscador.SelectedItem?.ToString() ?? string.Empty;
 
             // Obtener el valor ingresado en el TextBox
             string valor = txtboxBuscador.Text.ToUpper();
 
-            if (valor == null)
+            if (valor == null || string.IsNullOrEmpty(opcion))
             {
                 ActualizarTabla();
                 return;
@@ -262,7 +268,7 @@ namespace diav0._0._1
                     usuariosFiltrados = listaUsuarios.Where(u => u.Item1.Dni.ToString() == valor).ToList();
                     break;
                 case "Rol":
-                    usuariosFiltrados = listaUsuarios.Where(u => u.Item3.Descripcion.Equals(valor, StringComparison.OrdinalIgnoreCase)).ToList();
+                    usuariosFiltrados = listaUsuarios.Where(u => u.Item3.Descripcion.StartsWith(valor, StringComparison.OrdinalIgnoreCase)).ToList();
                     break;
                 default:
                     usuariosFiltrados = listaUsuarios;
@@ -273,11 +279,6 @@ namespace diav0._0._1
             ActualizarTablaUsuarios(usuariosFiltrados);
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            FiltrarUsuarios();
-        }
-
         private void txtboxBuscador_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -285,6 +286,11 @@ namespace diav0._0._1
                 FiltrarUsuarios();
                 e.Handled = true; // Para evitar que se agregue un salto de línea en el TextBox
             }
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            FiltrarUsuarios();
         }
     }
 
