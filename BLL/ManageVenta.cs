@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,11 @@ namespace BLL
     {
         private static int lastItemId = 0;
         private DAL.Venta objVenta;
-
+        private ManageArticulo objArticulo;
         public ManageVenta()
         {
             objVenta = new DAL.Venta();
+            objArticulo = new ManageArticulo();
         }
         public void RealizarVenta(Venta venta)
         {
@@ -31,17 +33,21 @@ namespace BLL
             return total;
         }
 
-        public Venta AgregarArticuloAVenta(Articulo articulo, int cantidad, Venta venta)
+        public bool AgregarArticuloAVenta(Articulo articulo, int cantidad, Venta venta)
         {
 
             foreach (ItemVenta  iv in venta.ListaArticulos) {
 
-                if (iv.Articulo.IdArticulo.Equals(articulo.IdArticulo))
+                if (iv.Articulo.IdArticulo.Equals(articulo.IdArticulo) && iv.Articulo.Stock >= (iv.Cantidad + cantidad) )
                 {
                     iv.Cantidad += cantidad;
                     iv.SubTotal = iv.Cantidad * articulo.Precio;
                     venta.MontoTotal += iv.SubTotal;
-                    return venta;
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
             
@@ -60,7 +66,7 @@ namespace BLL
 
             venta.MontoTotal += itemVenta.SubTotal;
 
-            return venta;
+            return true;
         }
 
         private static int GenerateItemId()
@@ -70,6 +76,20 @@ namespace BLL
             return lastItemId;
         }
 
+
+        public void RestarStock(Venta venta)
+        {
+
+            BLLRepositor repositor = new BLLRepositor();
+
+            foreach (ItemVenta iv in venta.ListaArticulos)
+            {
+                
+                repositor.cargarStock(iv.Articulo, (int)Math.Round(iv.Cantidad)*-1 );
+            }
+
+
+        }
      
 
         public bool GrabarVenta(Venta nuevaVenta)

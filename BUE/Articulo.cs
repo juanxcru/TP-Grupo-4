@@ -11,7 +11,6 @@ namespace BUE
         private int _idArticulo;
         private double _precio;
         private string _descripcion;
-        private double _iva;
         private int _stock;
         private Marca _marca;
 
