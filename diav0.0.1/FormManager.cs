@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using BUE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,20 +18,59 @@ namespace diav0._0._1
         {
             InitializeComponent();
         }
+        
+        Gerente Usuario = new Gerente();
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BotonBuscar_Click(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Ingresa ID del vendedor:", "", "");
+            bool tf = int.TryParse(input, out int ID);
+            if (tf)
+            {
+                BUE.Venta[] ventas = Usuario.VerVentaPorUsuario(ID);
+                foreach (BUE.Venta venta in ventas)
+                {
+                    
+                    if(venta != null)
+                    {
+                        dataGridView1.Rows.Add(venta.IdVenta, venta.FechaYHora, venta.MontoTotal);
+                    }
+                    
+                }
+            }
+
+            
+
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void BotonMensual_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.Rows.Clear();
+            BUE.Venta[] ventas = Usuario.Reporte(true);
+            foreach (BUE.Venta venta in ventas)
+            {
+                if (venta != null)
+                {
+                    dataGridView1.Rows.Add(venta.IdVenta, venta.FechaYHora, venta.MontoTotal);
+                }
+            }
         }
 
-        private void FormManager_Load(object sender, EventArgs e)
+        private void BotonSemanal_Click(object sender, EventArgs e)
         {
-
+            {
+                dataGridView1.Rows.Clear();
+                BUE.Venta[] ventas = Usuario.Reporte(false);
+                foreach (BUE.Venta venta in ventas)
+                {
+                    if (venta != null)
+                    {
+                        dataGridView1.Rows.Add(venta.IdVenta, venta.FechaYHora, venta.MontoTotal);
+                    }
+                }
+            }
         }
 
         private void panel14_Paint(object sender, PaintEventArgs e)
@@ -37,4 +78,5 @@ namespace diav0._0._1
 
         }
     }
+    
 }
