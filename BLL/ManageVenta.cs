@@ -39,17 +39,21 @@ namespace BLL
 
             foreach (ItemVenta  iv in venta.ListaArticulos) {
 
-                if (iv.Articulo.IdArticulo.Equals(articulo.IdArticulo) && iv.Articulo.Stock >= (iv.Cantidad + cantidad) )
+                if (iv.Articulo.IdArticulo.Equals(articulo.IdArticulo)) 
                 {
-                    iv.Cantidad += cantidad;
-                    iv.SubTotal = iv.Cantidad * articulo.Precio;
-                    
-                    return true;
+                    if(iv.Articulo.Stock >= (iv.Cantidad + cantidad))
+                    {
+                        iv.Cantidad += cantidad;
+                        iv.SubTotal = iv.Cantidad * articulo.Precio;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
                 }
-                else
-                {
-                    return false;
-                }
+                
             }
             
             
