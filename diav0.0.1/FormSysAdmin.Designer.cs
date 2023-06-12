@@ -538,7 +538,6 @@ namespace diav0._0._1
             this.txtboxBuscador.Name = "txtboxBuscador";
             this.txtboxBuscador.Size = new System.Drawing.Size(561, 18);
             this.txtboxBuscador.TabIndex = 35;
-            txtboxBuscador.KeyPress += txtboxBuscador_KeyPress;
             // 
             // panel19
             // 

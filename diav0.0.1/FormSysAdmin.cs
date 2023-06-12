@@ -20,21 +20,6 @@ namespace diav0._0._1
         private BUE.Usuario objUsuario;
         private BLL.SysAdmin gestorUsuario;
 
-        private static string GenerarContraseñaAleatoria()
-        {
-            const string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-            StringBuilder contraseña = new StringBuilder();
-            Random random = new Random();
-
-            for (int i = 0; i < 20; i++)
-            {
-                int indice = random.Next(caracteres.Length);
-                contraseña.Append(caracteres[indice]);
-            }
-
-            return contraseña.ToString();
-        }
-
         private void MessageFilaAfectada(DataGridViewRow filaNueva, string mensaje)
         {
             string infoFilaAfectada = InfoFila(filaNueva);
@@ -189,7 +174,7 @@ namespace diav0._0._1
             if (accion == 1)
             {
                 // Generar una contraseña aleatoria
-                password = GenerarContraseñaAleatoria();
+                password = Microsoft.VisualBasic.Interaction.InputBox("Ingresa la contraseña:", "", "").ToString();
 
                 // Crear el usuario y obtener el resultado
                 resultado = gestorUsuario.CrearUsuario(username, password, nombre, apellido, rol, dni);
