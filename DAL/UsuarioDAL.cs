@@ -9,7 +9,7 @@ using System.Web;
 
 namespace DAL
 {
-    public class Usuario
+    public class UsuarioDAL
     {
         /// <summary>
         /// Invocamos al store procedure que devuelve un DataTable, instanciamos un objeto de negocio y lo poblamos
@@ -31,16 +31,19 @@ namespace DAL
                 return null;
 
             BUE.Usuario usuarioDeRetorno = new BUE.Usuario();
+            BUE.Empleado objempleado = new BUE.Empleado();
             usuarioDeRetorno.ID = int.Parse(dt.Rows[0][0].ToString());
             usuarioDeRetorno.UserName = dt.Rows[0]["nombre_usuario"].ToString();
             usuarioDeRetorno.Password = pass;
             usuarioDeRetorno.Perfil = new BUE.Perfil();
             usuarioDeRetorno.Perfil.ID = int.Parse(dt.Rows[0]["id_perfil"].ToString());
             usuarioDeRetorno.Perfil.Descripcion = dt.Rows[0]["descripcion"].ToString();
-            usuarioDeRetorno.IdEmpleado = int.Parse(dt.Rows[0]["id_empleado"].ToString());
+            objempleado.IdEmpleado = int.Parse(dt.Rows[0]["id_empleado"].ToString());
+            usuarioDeRetorno.Empleado = objempleado;
 
             return usuarioDeRetorno;
         }
 
     }
+
 }
