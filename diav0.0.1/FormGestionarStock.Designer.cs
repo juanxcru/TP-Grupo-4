@@ -47,6 +47,7 @@
             this.nudStockNuevo = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGestionarStock)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStockNuevo)).BeginInit();
@@ -221,7 +222,7 @@
             // 
             // btnLimpiarCampos
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(701, 222);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(701, 247);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(87, 45);
             this.btnLimpiarCampos.TabIndex = 15;
@@ -229,11 +230,22 @@
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(701, 319);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(87, 45);
+            this.btnSalir.TabIndex = 16;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FormGestionarStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nudStockNuevo);
@@ -282,5 +294,6 @@
         private System.Windows.Forms.NumericUpDown nudStockNuevo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnLimpiarCampos;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

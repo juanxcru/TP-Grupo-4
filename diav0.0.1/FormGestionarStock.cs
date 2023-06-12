@@ -78,5 +78,10 @@ namespace diav0._0._1
             txtStock.Text = "";
             nudStockNuevo.Text = "";
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
