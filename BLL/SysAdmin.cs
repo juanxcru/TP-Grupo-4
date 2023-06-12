@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using BUE;
+using System.Net;
 
 namespace BLL
 {
@@ -27,12 +28,11 @@ namespace BLL
         {
             UsuarioDAL userIngresado = new UsuarioDAL();
 
-            int rep = userIngresado.usuarioRepetido(0, nombreUsuario, dni);
+            int rep = userIngresado.usuarioRepetido(0, nombreUsuario);
 
             switch (rep)
             {
                 case 1: return 1;
-                case 2: return 2;
             }
 
             userIngresado.CrearUsuario(nombreUsuario, password, nombre, apellido, perfil, dni);
@@ -44,27 +44,32 @@ namespace BLL
         {
             UsuarioDAL userIngresado = new UsuarioDAL();
 
-            int rep = userIngresado.usuarioRepetido(IDEmpleado, nombreUsuario, dni);
+            int rep = userIngresado.usuarioRepetido(IDEmpleado, nombreUsuario);
 
             switch (rep)
             {
                 case 1: return 1;
-                case 2: return 2;
+                case 0: return 0;
+
             }
 
             userIngresado.EditarUsuario(IDEmpleado, nombreUsuario, nombre, apellido, perfil, dni);
 
-            return 0;
+            return 4;
         }
 
         public int BajaUsuario(int IDEmpleado)
         {
             UsuarioDAL userIngresado = new UsuarioDAL();
 
+            int rep = userIngresado.usuarioRepetido(IDEmpleado,"");
+
+            switch (rep)
+            {
+                case 0: return 0;
+            }
             userIngresado.BajaUsuario(IDEmpleado);
-
-            return 0;
-
+            return 4;
         }
 
         /// <summary>

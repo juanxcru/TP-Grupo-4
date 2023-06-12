@@ -139,7 +139,7 @@ namespace DAL
         /// <param name="username"></param>
         /// <param name="dni"></param>
         /// <returns></returns>
-        public int usuarioRepetido(int IDEmpleado, string username, int dni)
+        public int usuarioRepetido(int IDEmpleado, string username)
         {
             Conexion objConexion = new Conexion();
             DataTable dt = objConexion.LeerPorStoreProcedure("sp_ver_usuarios");
@@ -153,9 +153,6 @@ namespace DAL
                 {
                     if (dr["nombre_usuario"].ToString() == username)
                         return 1;
-
-                    if (Convert.ToInt32(dr["dni_empleado"]) == dni)
-                        return 2;
                 }
                 else
                     bandera = true;

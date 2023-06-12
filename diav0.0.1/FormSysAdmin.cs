@@ -195,43 +195,31 @@ namespace diav0._0._1
                 resultado = gestorUsuario.CrearUsuario(username, password, nombre, apellido, rol, dni);
             }
             else if (accion == 2)
-            {
                 // Modificar el usuario y obtener el resultado
                 resultado = gestorUsuario.EditarUsuario(idEmpleado, username, nombre, apellido, rol, dni);
-            }
             else if (accion == 3)
-            {
                 // Eliminar usuario y obtener su resultado
                 resultado = gestorUsuario.BajaUsuario(idEmpleado);
-            }
 
             // Mostrar el mensaje correspondiente según el resultado
             if (resultado == 1)
-            {
                 mensaje = "Username repetido. Intente nuevamente.";
-            }
-            else if (resultado == 2)
-            {
-                mensaje = "DNI repetido. Intente nuevamente.";
-            }
             else if (resultado == 0)
             {
                 if (accion == 1)
                     mensaje = "Usuario creado con éxito. Contraseña generada: " + password;
-                if (accion == 2)
+                if (accion == 2 || accion == 3)
                     mensaje = "Usuario no existente en la base de datos";
-                if(accion == 3)
-                    mensaje = "Usuario eliminado con éxito";
             }
             else if (resultado == 4)
             {
                 if (accion == 2)
                     mensaje = "Usuario modificado con éxito.";
+                if (accion == 3)
+                    mensaje = "Usuario eliminado con éxito";
             }
             else
-            {
                 mensaje = "Hubo un error";
-            }
 
             // Mostrar el cartel con la información de la fila afectada y el mensaje
             MessageFilaAfectada(selectedRow, mensaje);
