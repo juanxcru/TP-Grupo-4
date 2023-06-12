@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BUE
 {
-    public class Perfil : IEntidad
+    public class Perfil
     {
         private int _id;
         public int ID

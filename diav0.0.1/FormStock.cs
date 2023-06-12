@@ -21,5 +21,29 @@ namespace diav0._0._1
         {
 
         }
+
+        private void btnCrearArticulo_Click(object sender, EventArgs e)
+        {
+            FormCrearArticulo objCrearArticulo = new FormCrearArticulo();
+            objCrearArticulo.ShowDialog();
+        }
+
+        private void btnGenerarAlerta_Click(object sender, EventArgs e)
+        {
+            FormGenerarAlerta objGenerarAlerta = new FormGenerarAlerta(); 
+            objGenerarAlerta.ShowDialog();
+        }
+
+        private void btnModificarArticulo_Click(object sender, EventArgs e)
+        {
+            FormModificarArticulo objModificarArticulo = new FormModificarArticulo();
+            objModificarArticulo.ShowDialog();
+        }
+
+        private void btnGestionarStock_Click(object sender, EventArgs e)
+        {
+            FormGestionarStock formGestionarStock = new FormGestionarStock();
+            formGestionarStock.ShowDialog();
+        }
     }
 }

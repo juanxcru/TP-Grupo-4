@@ -79,8 +79,6 @@ namespace diav0._0._1
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel38 = new System.Windows.Forms.Panel();
             panel6 = new System.Windows.Forms.Panel();
             panel6.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -112,10 +110,10 @@ namespace diav0._0._1
             panel6.Controls.Add(this.panel7);
             panel6.Controls.Add(this.panel37);
             panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel6.Location = new System.Drawing.Point(277, 8);
-            panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            panel6.Location = new System.Drawing.Point(277, 0);
+            panel6.Margin = new System.Windows.Forms.Padding(2);
             panel6.Name = "panel6";
-            panel6.Size = new System.Drawing.Size(341, 366);
+            panel6.Size = new System.Drawing.Size(341, 375);
             panel6.TabIndex = 13;
             // 
             // panel19
@@ -670,34 +668,14 @@ namespace diav0._0._1
             this.panel31.Size = new System.Drawing.Size(8, 374);
             this.panel31.TabIndex = 11;
             // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(277, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(341, 8);
-            this.panel2.TabIndex = 12;
-            // 
-            // panel38
-            // 
-            this.panel38.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel38.Location = new System.Drawing.Point(277, 366);
-            this.panel38.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(341, 8);
-            this.panel38.TabIndex = 14;
-            // 
             // FormIniciarSesion
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(626, 374);
-            this.Controls.Add(this.panel38);
+            this.ClientSize = new System.Drawing.Size(626, 375);
             this.Controls.Add(panel6);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel31);
             this.Controls.Add(this.panel24);
             this.Controls.Add(this.panel1);
@@ -745,11 +723,9 @@ namespace diav0._0._1
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.Panel panel33;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel36;
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.Button btnLogin;
@@ -780,10 +756,10 @@ namespace diav0._0._1
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.Panel panel38;
         private System.Windows.Forms.Button btnOcultarPssw;
         private System.Windows.Forms.Button btnMostrarPsswd;
         private System.Windows.Forms.Button btnOcultarPswd;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,6 +11,14 @@ namespace DAL
 {
     public class ArticuloDAL
     {
+       public DataTable listarArticulos()
+        {
+            Conexion objConexion = new Conexion();
+            DataTable dt = objConexion.LeerPorStoreProcedure("sp_listarArticulos");
+
+            return dt;
+        }
+
         public BUE.Articulo ValidarArticulo(string idArticulo, int cantidad)
         {
             string usuarioStoreProcedure = "sp_validar_articulo";
@@ -35,6 +44,6 @@ namespace DAL
             articuloDeRetorno.Marca = marca;
 
             return articuloDeRetorno;
-        }
+        }        
     }
 }
