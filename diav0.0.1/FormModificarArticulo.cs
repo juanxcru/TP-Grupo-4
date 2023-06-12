@@ -92,8 +92,9 @@ namespace diav0._0._1
 
                 //Ejecuto metodo de creacion de Articulo                
                 objBLLRepositor.modificarArticulo(objBUEArticulo, objBUECategoria, objBUEMarca);
-                
+
                 //Limpio campos
+                txtId.Text = "";
                 txtDescripcion.Text = "";
                 nudNuevoPrecio.Text = "";                
                 txtCategoria.Text = "";
@@ -120,6 +121,7 @@ namespace diav0._0._1
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
             //Limpio campos
+            txtId.Text = "";
             txtDescripcion.Text = "";
             nudNuevoPrecio.Text = "";
             txtCategoria.Text = "";
@@ -129,6 +131,11 @@ namespace diav0._0._1
             cmbNuevaCategoria.Enabled = false;
             cmbNuevaMarca.Enabled = false;
             nudNuevoPrecio.Enabled = false;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

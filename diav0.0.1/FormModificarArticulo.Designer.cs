@@ -51,6 +51,7 @@
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNuevoPrecio)).BeginInit();
@@ -152,7 +153,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(206, 374);
+            this.button1.Location = new System.Drawing.Point(13, 374);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 37);
             this.button1.TabIndex = 11;
@@ -264,7 +265,7 @@
             // 
             // btnLimpiarCampos
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(70, 374);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(107, 374);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(93, 37);
             this.btnLimpiarCampos.TabIndex = 23;
@@ -272,11 +273,22 @@
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(206, 374);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(93, 37);
+            this.btnSalir.TabIndex = 24;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FormModificarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtMarca);
@@ -334,5 +346,6 @@
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnLimpiarCampos;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
