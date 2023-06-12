@@ -45,10 +45,14 @@
             this.lblApellidoNombreCliente = new System.Windows.Forms.Label();
             this.lblDNI = new System.Windows.Forms.Label();
             this.dgvResumen = new System.Windows.Forms.DataGridView();
-            this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.dniBusqueda = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtApellidoNombreCliente = new System.Windows.Forms.TextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResumen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,7 +200,7 @@
             // 
             this.lblApellidoNombreCliente.AutoSize = true;
             this.lblApellidoNombreCliente.Enabled = false;
-            this.lblApellidoNombreCliente.Location = new System.Drawing.Point(573, 95);
+            this.lblApellidoNombreCliente.Location = new System.Drawing.Point(573, 64);
             this.lblApellidoNombreCliente.Name = "lblApellidoNombreCliente";
             this.lblApellidoNombreCliente.Size = new System.Drawing.Size(123, 17);
             this.lblApellidoNombreCliente.TabIndex = 14;
@@ -207,7 +211,7 @@
             // 
             this.lblDNI.AutoSize = true;
             this.lblDNI.Enabled = false;
-            this.lblDNI.Location = new System.Drawing.Point(573, 146);
+            this.lblDNI.Location = new System.Drawing.Point(573, 138);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(31, 17);
             this.lblDNI.TabIndex = 15;
@@ -221,6 +225,7 @@
             this.dgvResumen.AllowUserToResizeRows = false;
             this.dgvResumen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResumen.Enabled = false;
             this.dgvResumen.Location = new System.Drawing.Point(566, 189);
             this.dgvResumen.Name = "dgvResumen";
             this.dgvResumen.ReadOnly = true;
@@ -231,14 +236,6 @@
             this.dgvResumen.Size = new System.Drawing.Size(460, 244);
             this.dgvResumen.TabIndex = 16;
             this.dgvResumen.Visible = false;
-            // 
-            // cmbCliente
-            // 
-            this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(337, 122);
-            this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(198, 24);
-            this.cmbCliente.TabIndex = 17;
             // 
             // lblCliente
             // 
@@ -257,7 +254,7 @@
             this.dniBusqueda.Name = "dniBusqueda";
             this.dniBusqueda.Size = new System.Drawing.Size(184, 22);
             this.dniBusqueda.TabIndex = 19;
-            this.dniBusqueda.TextChanged += new System.EventHandler(this.dniBusqueda_TextChanged);
+            this.dniBusqueda.TextChanged += new System.EventHandler(this.DniBusqueda_TextChanged);
             // 
             // label6
             // 
@@ -269,15 +266,65 @@
             this.label6.TabIndex = 20;
             this.label6.Text = "Buscar cliente";
             // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.Enabled = false;
+            this.txtNombreCliente.Location = new System.Drawing.Point(337, 123);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.Size = new System.Drawing.Size(100, 22);
+            this.txtNombreCliente.TabIndex = 21;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Enabled = false;
+            this.lblEmail.Location = new System.Drawing.Point(573, 101);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(42, 17);
+            this.lblEmail.TabIndex = 22;
+            this.lblEmail.Text = "Email";
+            this.lblEmail.Visible = false;
+            // 
+            // txtApellidoNombreCliente
+            // 
+            this.txtApellidoNombreCliente.Enabled = false;
+            this.txtApellidoNombreCliente.Location = new System.Drawing.Point(720, 64);
+            this.txtApellidoNombreCliente.Name = "txtApellidoNombreCliente";
+            this.txtApellidoNombreCliente.Size = new System.Drawing.Size(233, 22);
+            this.txtApellidoNombreCliente.TabIndex = 23;
+            this.txtApellidoNombreCliente.Visible = false;
+            // 
+            // txtDni
+            // 
+            this.txtDni.Enabled = false;
+            this.txtDni.Location = new System.Drawing.Point(720, 133);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(233, 22);
+            this.txtDni.TabIndex = 24;
+            this.txtDni.Visible = false;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Location = new System.Drawing.Point(720, 101);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(233, 22);
+            this.txtEmail.TabIndex = 25;
+            this.txtEmail.Visible = false;
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 573);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtDni);
+            this.Controls.Add(this.txtApellidoNombreCliente);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.txtNombreCliente);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dniBusqueda);
             this.Controls.Add(this.lblCliente);
-            this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.dgvResumen);
             this.Controls.Add(this.lblDNI);
             this.Controls.Add(this.lblApellidoNombreCliente);
@@ -324,9 +371,13 @@
         private System.Windows.Forms.Label lblApellidoNombreCliente;
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.DataGridView dgvResumen;
-        private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.TextBox dniBusqueda;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtNombreCliente;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtApellidoNombreCliente;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }

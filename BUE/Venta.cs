@@ -19,6 +19,11 @@ namespace BUE
         {
             ListaArticulos = new List<ItemVenta>();
         }
+        public Venta(int idVendedor)
+        {
+            ListaArticulos = new List<ItemVenta>();
+            _idEmpleado = idVendedor;
+        }
         public int IdVenta
         {
             get { return _idVenta; }

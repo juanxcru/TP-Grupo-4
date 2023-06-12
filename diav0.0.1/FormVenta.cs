@@ -17,14 +17,18 @@ namespace diav0._0._1
         private Venta objVenta;
         private ManageArticulo gestorArticulo;
         private ManageVenta gestorVenta;
-        private ManageCliente objCliente;
-        public FormVenta()
+        private ManageCliente gestorCliente;
+        private Cliente objCliente;
+    
+        public FormVenta(int idVendedor)
         {
             InitializeComponent();
-            objVenta = new Venta();
-            objCliente = new ManageCliente();
+            objVenta = new Venta(idVendedor);
+            gestorCliente = new ManageCliente();
             gestorArticulo = new ManageArticulo();
             gestorVenta = new ManageVenta();
+
+            
         }
 
         private void FormVenta_Load(object sender, EventArgs e)
@@ -107,32 +111,60 @@ namespace diav0._0._1
         private void btnFinalizarVenta_Click(object sender, EventArgs e)
         {
 
+
             if (btnFinalizarVenta.Text.Equals("Finalizar Venta")) {
+
+
+                objVenta.IdCliente = objCliente.IdCliente;
+                objVenta.FechaYHora = DateTime.Now;
                 
 
-                //guardar venta en bbdd 
-                //exportar factura?
-                // 
+                if (gestorVenta.GrabarVenta(objVenta))
+                {
 
+                    MessageBox.Show("Venta finalizada");
+                    LimpiarCampos();
+                }
+                else
+                {
+
+                    MessageBox.Show("Venta no guardada");
+                }
                 //MessageBox.Show($"Venta {objVenta.IdVenta} finalizada" );
-                MessageBox.Show("Venta finalizada" );
                 
-                LimpiarCampos();
                 return;
             
             }
 
+            if(!string.IsNullOrEmpty(txtIdArticulo.Text) && !string.IsNullOrEmpty(txtCantidadArticulos.Text) && !string.IsNullOrEmpty(dniBusqueda.Text) )
+            {
+                lblApellidoNombreCliente.Visible = true;
+                txtApellidoNombreCliente.Text = objCliente.Apellido + " " + objCliente.Nombre;
+                lblDNI.Visible = true;
+                txtDni.Text = objCliente.Dni.ToString();
+                lblEmail.Visible = true;
+                txtEmail.Text = objCliente.Email;
 
-            lblApellidoNombreCliente.Visible = true;
-            lblDNI.Visible = true;
-            dgvResumen.Visible = true;
 
-            btnEliminarArticulo.Enabled = false;
-            btnIngresarArticulo.Enabled = false;
-            btnFinalizarVenta.Text = "Finalizar Venta";
+                dgvResumen.Visible = true;
+
+                btnEliminarArticulo.Enabled = false;
+                btnIngresarArticulo.Enabled = false;
+                btnFinalizarVenta.Text = "Finalizar Venta";
 
 
-            ArmarTablaResumenVenta();
+                ArmarTablaResumenVenta();
+                
+
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos");
+            }
+            
+           
+
+
             //poner los datos del cliente seleccionado (si es el generico, o no se elije, va vacio)
            
         }
@@ -165,22 +197,32 @@ namespace diav0._0._1
 
             objVenta.ListaArticulos.Clear();
             lboxArticulos.Items.Clear();
-            
+            txtIdArticulo.Text = "";
+            txtCantidadArticulos.Text = "";
             lblTotalAPagar.Text = "0";
             txtCantidadArticulos.Text = "";
             txtIdArticulo.Text = "";
+            txtNombreCliente.Text = "";
+
 
             if (dgvResumen.Visible)
             {
                 dgvResumen.DataSource = null;
                 dgvResumen.Refresh();
-
                 dgvResumen.Visible = false;
+
                 lblApellidoNombreCliente.Visible = false;
+                txtApellidoNombreCliente.Visible = false;
+                
+                txtDni.Visible = false;
                 lblDNI.Visible = false;
+                
+                txtEmail.Visible = false;
+                lblEmail.Visible = false;
 
                 btnEliminarArticulo.Enabled = true;
                 btnIngresarArticulo.Enabled = true;
+                
                 btnFinalizarVenta.Text = "Revisar venta";
 
                 objVenta = new Venta();
@@ -193,9 +235,11 @@ namespace diav0._0._1
 
         private void DniBusqueda_TextChanged(object sender, EventArgs e)
         {
-            objCliente.BuscarDni(dniBusqueda.Text);
 
-
+            objCliente = gestorCliente.BuscarDni(dniBusqueda.Text);
+            if (objCliente != null)
+                txtNombreCliente.Text = objCliente.Nombre + objCliente.Apellido;
+            
         }
     }
 }

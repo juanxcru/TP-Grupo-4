@@ -148,7 +148,7 @@ namespace diav0._0._1
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(0, 0);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(169, 48);
             this.btnLogin.TabIndex = 3;
@@ -259,7 +259,7 @@ namespace diav0._0._1
             this.txtbxPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtbxPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxPassword.Location = new System.Drawing.Point(60, 14);
-            this.txtbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxPassword.Name = "txtbxPassword";
             this.txtbxPassword.PasswordChar = '*';
             this.txtbxPassword.Size = new System.Drawing.Size(391, 23);
@@ -346,7 +346,7 @@ namespace diav0._0._1
             this.txtbxUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtbxUser.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxUser.Location = new System.Drawing.Point(59, 14);
-            this.txtbxUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbxUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxUser.Name = "txtbxUser";
             this.txtbxUser.Size = new System.Drawing.Size(392, 23);
             this.txtbxUser.TabIndex = 1;
@@ -706,7 +706,7 @@ namespace diav0._0._1
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(850, 499);
             this.MinimumSize = new System.Drawing.Size(850, 499);
             this.Name = "FormIniciarSesion";

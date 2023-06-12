@@ -37,7 +37,7 @@ namespace DAL
             usuarioDeRetorno.Perfil = new BUE.Perfil();
             usuarioDeRetorno.Perfil.ID = int.Parse(dt.Rows[0]["id_perfil"].ToString());
             usuarioDeRetorno.Perfil.Descripcion = dt.Rows[0]["descripcion"].ToString();
-
+            usuarioDeRetorno.IdEmpleado = int.Parse(dt.Rows[0]["id_empleado"].ToString());
 
             return usuarioDeRetorno;
         }

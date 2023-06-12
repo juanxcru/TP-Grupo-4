@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace BLL
 
         }
 
-        public List<BUE.Cliente> BuscarDNI(string dni) {
+        public BUE.Cliente BuscarDni(string dni) {
 
             if (!string.IsNullOrEmpty(dni) && dni.All(char.IsDigit))
                 return objCliente.BuscarClientesDni(dni);              
@@ -34,6 +35,15 @@ namespace BLL
 
         }
 
+        public bool GuardarClienteNuevo(Cliente nuevoCliente)
+        {
+            return objCliente.GuardarClienteNuevo(nuevoCliente);
+           
+        }
 
+        public bool ExisteClienteDni(int dni)
+        {
+            return objCliente.ExisteDni(dni);
+        }
     }
 }

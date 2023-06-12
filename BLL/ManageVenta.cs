@@ -10,6 +10,12 @@ namespace BLL
     public class ManageVenta
     {
         private static int lastItemId = 0;
+        private DAL.Venta objVenta;
+
+        public ManageVenta()
+        {
+            objVenta = new DAL.Venta();
+        }
         public void RealizarVenta(Venta venta)
         {
 
@@ -64,9 +70,24 @@ namespace BLL
             return lastItemId;
         }
 
-        public void AgregarItemVenta(ItemVenta itemVenta, Venta venta)
+     
+
+        public bool GrabarVenta(Venta nuevaVenta)
         {
-            venta.ListaArticulos.Add(itemVenta);
+
+            try
+            {
+                objVenta.GrabarVenta(nuevaVenta);
+                
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+            
+            return true;
         }
     }
 }

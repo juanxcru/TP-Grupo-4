@@ -11,7 +11,15 @@ namespace BUE
         private int _id;
         private string _nombreUsuario;
         private string _password;
+        private int _idEmpleado;
         private Perfil _perfil;
+
+        public int IdEmpleado
+        {
+            get { return _idEmpleado; }
+            set { _idEmpleado = value; }
+        }
+
 
         public int ID {
             get { return _id; }
