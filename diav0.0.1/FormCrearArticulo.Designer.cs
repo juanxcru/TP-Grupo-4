@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
@@ -117,7 +118,7 @@
             // 
             // btnCrearArticulo
             // 
-            this.btnCrearArticulo.Location = new System.Drawing.Point(650, 165);
+            this.btnCrearArticulo.Location = new System.Drawing.Point(650, 123);
             this.btnCrearArticulo.Name = "btnCrearArticulo";
             this.btnCrearArticulo.Size = new System.Drawing.Size(104, 42);
             this.btnCrearArticulo.TabIndex = 7;
@@ -172,7 +173,7 @@
             // 
             // btnLimpiarCampos
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(650, 213);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(650, 212);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(104, 42);
             this.btnLimpiarCampos.TabIndex = 13;
@@ -180,11 +181,22 @@
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(650, 290);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 42);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Salir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormCrearArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -225,5 +237,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLimpiarCampos;
+        private System.Windows.Forms.Button button1;
     }
 }

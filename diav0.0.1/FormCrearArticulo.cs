@@ -105,5 +105,10 @@ namespace diav0._0._1
             cmbCategoria.Text = "";
             cmbMarca.Text = "";
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

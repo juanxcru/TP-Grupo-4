@@ -30,14 +30,12 @@ namespace BUE
 
         private Perfil _perfil;
         public Perfil Perfil
-
         {
             get { return _perfil; }
             set { _perfil = value; }
         }
 
         private Empleado _empleado;
-
         public Empleado Empleado
         {
             get { return _empleado; }
