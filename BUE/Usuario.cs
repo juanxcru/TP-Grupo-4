@@ -11,7 +11,6 @@ namespace BUE
         private int _id;
         private string _nombreUsuario;
         private string _password;
-        private int _idEmpleado;
         private Perfil _perfil;
         private Empleado _empleado;
 
