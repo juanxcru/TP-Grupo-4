@@ -13,11 +13,12 @@ namespace BUE
         private string _password;
         private int _idEmpleado;
         private Perfil _perfil;
+        private Empleado _empleado;
 
-        public int IdEmpleado
+        public Empleado Empleado
         {
-            get { return _idEmpleado; }
-            set { _idEmpleado = value; }
+            get { return _empleado; }
+            set { _empleado = value; }
         }
 
 
