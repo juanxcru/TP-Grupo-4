@@ -11,6 +11,12 @@ namespace BLL
 {
     public class Gerente : Usuario
     {
+        /// <summary>
+        /// Genera una tabla de clase Venta recuperando todas las instancias de una venta
+        /// con la ID del vendedor pasada por el parametro.
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         public BUE.Venta[] VerVentaPorUsuario(int ID)
         {
             DAL.VentasDAL data = new DAL.VentasDAL(); 
@@ -32,11 +38,15 @@ namespace BLL
                 }
                 
             }
-
             return ventas;
 
         }
-
+        /// <summary>
+        /// Genera una tabla de clase Venta con todas las ventas realizadas
+        /// desde el principio del mes o los últimos 7 días dependiendo si el parametro es true o false.
+        /// </summary>
+        /// <param name="menosem"></param>
+        /// <returns></returns>
         public BUE.Venta[] Reporte(bool menosem)
         {
             DAL.VentasDAL data = new DAL.VentasDAL();
