@@ -6,38 +6,43 @@ using System.Threading.Tasks;
 
 namespace BUE
 {
-    public class Usuario : IEntidad
+    public class Usuario
     {
         private int _id;
-        private string _nombreUsuario;
-        private string _password;
-        private Perfil _perfil;
-
         public int ID {
             get { return _id; }
             set { _id = value; }
         }
 
-
+        private string _username;
         public string UserName
         {
-            get { return _nombreUsuario; }
-            set { _nombreUsuario = value; }
+            get { return _username; }
+            set { _username = value; }
         }
 
-
+        private string _password;
         public string Password
         {
             get { return _password; }
             set { _password = value; }
         }
 
-
+        private Perfil _perfil;
         public Perfil Perfil
 
         {
             get { return _perfil; }
             set { _perfil = value; }
         }
+
+        private Empleado _empleado;
+
+        public Empleado Empleado
+        {
+            get { return _empleado; }
+            set { _empleado = value; }
+        }
+
     }
 }

@@ -143,7 +143,7 @@ namespace DAL
         {
             Conexion objConexion = new Conexion();
             DataTable dt = objConexion.LeerPorStoreProcedure("sp_ver_usuarios");
-
+            bool bandera = false;
 
             foreach (DataRow dr in dt.Rows)
             {
@@ -157,9 +157,19 @@ namespace DAL
                     if (Convert.ToInt32(dr["dni_empleado"]) == dni)
                         return 2;
                 }
+                else
+                    bandera = true;
             }
 
-            return 0;
+            if (bandera == false)
+            {
+                return 0;
+            }
+            else
+            {
+                return 4;
+            }
+            
         }
 
         /// <summary>
