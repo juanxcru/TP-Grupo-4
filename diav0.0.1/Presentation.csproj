@@ -53,6 +53,7 @@
     </Compile>
     <Compile Include="FormNuevoCliente.Designer.cs">
       <DependentUpon>FormNuevoCliente.cs</DependentUpon>
+	</Compile>
     <Compile Include="FormCrearArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +118,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormNuevoCliente.resx">
       <DependentUpon>FormNuevoCliente.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="FormCrearArticulo.resx">
       <DependentUpon>FormCrearArticulo.cs</DependentUpon>
     </EmbeddedResource>

@@ -35,14 +35,6 @@ namespace BUE
             set { _precio = value; }
         }
 
-
-        public double Iva
-        {
-            get { return _iva; }
-            set { _iva = value; }
-        }
-
-
         public int Stock
         {
             get { return _stock; }

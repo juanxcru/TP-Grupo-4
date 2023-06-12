@@ -35,7 +35,6 @@ namespace DAL
             BUE.Articulo articuloDeRetorno = new BUE.Articulo();
             articuloDeRetorno.IdArticulo = int.Parse(dt.Rows[0][0].ToString());
             articuloDeRetorno.Descripcion = dt.Rows[0]["descripcion"].ToString();
-            articuloDeRetorno.Iva = double.Parse(dt.Rows[0]["iva"].ToString());
             articuloDeRetorno.Precio = double.Parse(dt.Rows[0]["precio"].ToString());
             articuloDeRetorno.Stock = int.Parse(dt.Rows[0]["stock"].ToString());
             string nombreMarca = dt.Rows[0]["nombre_marca"].ToString();

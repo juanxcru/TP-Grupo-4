@@ -300,9 +300,6 @@ namespace DAL
 
         #endregion
 
-        #endregion
-
-        
     }
 
 }        
