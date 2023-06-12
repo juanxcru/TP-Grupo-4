@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Gerente.cs" />
+    <Compile Include="BLLCategoria.cs" />
+    <Compile Include="BLLMarcas.cs" />
+    <Compile Include="BLLRepositor.cs" />
+    <Compile Include="Excepciones\ExcepcionesArticulos.cs" />
     <Compile Include="ManageArticulo.cs" />
     <Compile Include="ManageVenta.cs" />
     <Compile Include="SysAdmin.cs" />

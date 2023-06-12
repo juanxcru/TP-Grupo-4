@@ -39,9 +39,5 @@ namespace BUE
             get { return _perfil; }
             set { _perfil = value; }
         }
-
-
-
-
     }
 }

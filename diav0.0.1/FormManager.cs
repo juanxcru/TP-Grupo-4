@@ -72,6 +72,11 @@ namespace diav0._0._1
                 }
             }
         }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
     
 }

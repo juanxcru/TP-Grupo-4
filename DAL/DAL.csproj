@@ -44,7 +44,10 @@
     <Compile Include="ArticuloDAL.cs" />
     <Compile Include="VentasDAL.cs" />
     <Compile Include="Conexion.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="DALCategoria.cs" />
+    <Compile Include="DALMarcas.cs" />
+    <Compile Include="DALRepositor.cs" />
+    <Compile Include="UsuarioDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
