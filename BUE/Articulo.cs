@@ -9,6 +9,11 @@ namespace BUE
     public class Articulo
     {
         private int _idArticulo;
+        private double _precio;
+        private string _descripcion;
+        private double _iva;
+        private int _stock;
+        private Marca _marca;
 
         public int IdArticulo
         {
@@ -16,7 +21,6 @@ namespace BUE
             set { _idArticulo = value; }
         }
 
-        private string _descripcion;
 
         public string Descripcion
         {
@@ -24,7 +28,6 @@ namespace BUE
             set { _descripcion = value; }
         }
 
-        private double _precio;
 
         public double Precio
         {
@@ -32,7 +35,6 @@ namespace BUE
             set { _precio = value; }
         }
 
-        private double _iva;
 
         public double Iva
         {
@@ -40,7 +42,6 @@ namespace BUE
             set { _iva = value; }
         }
 
-        private int _stock;
 
         public int Stock
         {
@@ -48,7 +49,6 @@ namespace BUE
             set { _stock = value; }
         }
 
-        private Marca _marca;
 
         public Marca Marca
         {

@@ -59,7 +59,7 @@ namespace diav0._0._1
                         }
                     case 3:
                         {
-                            FormVendor frmVendor = new FormVendor();
+                            FormVendor frmVendor = new FormVendor(objUsuario.Empleado.IdEmpleado);
                             frmVendor.ShowDialog();
                             break;
                         }

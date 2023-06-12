@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormNuevoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNuevoCliente.Designer.cs">
+      <DependentUpon>FormNuevoCliente.cs</DependentUpon>
     <Compile Include="FormCrearArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +115,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormNuevoCliente.resx">
+      <DependentUpon>FormNuevoCliente.cs</DependentUpon>
     <EmbeddedResource Include="FormCrearArticulo.resx">
       <DependentUpon>FormCrearArticulo.cs</DependentUpon>
     </EmbeddedResource>

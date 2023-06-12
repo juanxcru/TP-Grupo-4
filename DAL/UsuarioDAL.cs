@@ -32,17 +32,18 @@ namespace DAL
                 return null;
 
             BUE.Usuario usuarioDeRetorno = new BUE.Usuario();
+            BUE.Empleado objempleado = new BUE.Empleado();
             usuarioDeRetorno.ID = int.Parse(dt.Rows[0][0].ToString());
             usuarioDeRetorno.UserName = dt.Rows[0]["nombre_usuario"].ToString();
             usuarioDeRetorno.Password = password;
             usuarioDeRetorno.Perfil = new BUE.Perfil();
             usuarioDeRetorno.Perfil.ID = int.Parse(dt.Rows[0]["id_perfil"].ToString());
             usuarioDeRetorno.Perfil.Descripcion = dt.Rows[0]["descripcion"].ToString();
-
+            objempleado.IdEmpleado = int.Parse(dt.Rows[0]["id_empleado"].ToString());
+            usuarioDeRetorno.Empleado = objempleado;
 
             return usuarioDeRetorno;
         }
-
         /// <summary>
         /// Damos de alta un usuario en el programa y devuelve el usuario creado
         /// </summary>

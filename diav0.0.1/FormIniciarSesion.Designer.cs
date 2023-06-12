@@ -123,7 +123,7 @@ namespace diav0._0._1
             this.panel19.Controls.Add(this.panel20);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel19.Location = new System.Drawing.Point(0, 282);
-            this.panel19.Margin = new System.Windows.Forms.Padding(2);
+            this.panel19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(341, 39);
             this.panel19.TabIndex = 15;
@@ -133,7 +133,7 @@ namespace diav0._0._1
             this.panel32.Controls.Add(this.btnLogin);
             this.panel32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel32.Location = new System.Drawing.Point(106, 0);
-            this.panel32.Margin = new System.Windows.Forms.Padding(2);
+            this.panel32.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(129, 39);
             this.panel32.TabIndex = 16;
@@ -158,7 +158,7 @@ namespace diav0._0._1
             this.panel23.Controls.Add(this.btnOcultarPssw);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel23.Location = new System.Drawing.Point(235, 0);
-            this.panel23.Margin = new System.Windows.Forms.Padding(2);
+            this.panel23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(106, 39);
             this.panel23.TabIndex = 15;
@@ -170,7 +170,7 @@ namespace diav0._0._1
             this.btnOcultarPssw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOcultarPssw.ForeColor = System.Drawing.Color.Black;
             this.btnOcultarPssw.Location = new System.Drawing.Point(31, 5);
-            this.btnOcultarPssw.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOcultarPssw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOcultarPssw.Name = "btnOcultarPssw";
             this.btnOcultarPssw.Size = new System.Drawing.Size(22, 24);
             this.btnOcultarPssw.TabIndex = 1;
@@ -181,7 +181,7 @@ namespace diav0._0._1
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel20.Location = new System.Drawing.Point(0, 0);
-            this.panel20.Margin = new System.Windows.Forms.Padding(2);
+            this.panel20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(106, 39);
             this.panel20.TabIndex = 13;
@@ -190,7 +190,7 @@ namespace diav0._0._1
             // 
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(0, 259);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(341, 23);
             this.panel14.TabIndex = 14;
@@ -207,7 +207,7 @@ namespace diav0._0._1
             this.panel22.Controls.Add(this.panel15);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel22.Location = new System.Drawing.Point(0, 219);
-            this.panel22.Margin = new System.Windows.Forms.Padding(2);
+            this.panel22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(341, 40);
             this.panel22.TabIndex = 12;
@@ -223,7 +223,7 @@ namespace diav0._0._1
             this.btnMostrarPsswd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnMostrarPsswd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrarPsswd.Location = new System.Drawing.Point(315, 0);
-            this.btnMostrarPsswd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMostrarPsswd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMostrarPsswd.Name = "btnMostrarPsswd";
             this.btnMostrarPsswd.Size = new System.Drawing.Size(20, 40);
             this.btnMostrarPsswd.TabIndex = 8;
@@ -242,7 +242,7 @@ namespace diav0._0._1
             this.btnOcultarPswd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnOcultarPswd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOcultarPswd.Location = new System.Drawing.Point(314, 0);
-            this.btnOcultarPswd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOcultarPswd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOcultarPswd.Name = "btnOcultarPswd";
             this.btnOcultarPswd.Size = new System.Drawing.Size(21, 40);
             this.btnOcultarPswd.TabIndex = 9;
@@ -266,7 +266,7 @@ namespace diav0._0._1
             this.panel18.BackColor = System.Drawing.Color.White;
             this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel18.Location = new System.Drawing.Point(45, 32);
-            this.panel18.Margin = new System.Windows.Forms.Padding(2);
+            this.panel18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(296, 8);
             this.panel18.TabIndex = 7;
@@ -276,7 +276,7 @@ namespace diav0._0._1
             this.panel17.BackColor = System.Drawing.Color.White;
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel17.Location = new System.Drawing.Point(45, 0);
-            this.panel17.Margin = new System.Windows.Forms.Padding(2);
+            this.panel17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(296, 11);
             this.panel17.TabIndex = 6;
@@ -287,7 +287,7 @@ namespace diav0._0._1
             this.panel16.Controls.Add(this.pictureBox3);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel16.Location = new System.Drawing.Point(8, 0);
-            this.panel16.Margin = new System.Windows.Forms.Padding(2);
+            this.panel16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(37, 40);
             this.panel16.TabIndex = 5;
@@ -297,7 +297,7 @@ namespace diav0._0._1
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 40);
             this.pictureBox3.TabIndex = 1;
@@ -308,7 +308,7 @@ namespace diav0._0._1
             this.panel15.BackColor = System.Drawing.Color.White;
             this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Margin = new System.Windows.Forms.Padding(2);
+            this.panel15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(8, 40);
             this.panel15.TabIndex = 4;
@@ -317,7 +317,7 @@ namespace diav0._0._1
             // 
             this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel21.Location = new System.Drawing.Point(0, 211);
-            this.panel21.Margin = new System.Windows.Forms.Padding(2);
+            this.panel21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(341, 8);
             this.panel21.TabIndex = 11;
@@ -331,7 +331,7 @@ namespace diav0._0._1
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 171);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(341, 40);
             this.panel9.TabIndex = 9;
@@ -351,7 +351,7 @@ namespace diav0._0._1
             this.panel12.BackColor = System.Drawing.Color.White;
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel12.Location = new System.Drawing.Point(44, 32);
-            this.panel12.Margin = new System.Windows.Forms.Padding(2);
+            this.panel12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(297, 8);
             this.panel12.TabIndex = 3;
@@ -361,7 +361,7 @@ namespace diav0._0._1
             this.panel11.BackColor = System.Drawing.Color.White;
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(44, 0);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(297, 11);
             this.panel11.TabIndex = 2;
@@ -373,7 +373,7 @@ namespace diav0._0._1
             this.panel10.Controls.Add(this.panel13);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(44, 40);
             this.panel10.TabIndex = 1;
@@ -383,7 +383,7 @@ namespace diav0._0._1
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(8, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(36, 40);
             this.pictureBox2.TabIndex = 1;
@@ -393,7 +393,7 @@ namespace diav0._0._1
             // 
             this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(8, 40);
             this.panel13.TabIndex = 0;
@@ -402,7 +402,7 @@ namespace diav0._0._1
             // 
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 148);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(341, 23);
             this.panel8.TabIndex = 8;
@@ -415,7 +415,7 @@ namespace diav0._0._1
             this.panel7.Controls.Add(this.panel26);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 107);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(341, 41);
             this.panel7.TabIndex = 7;
@@ -425,7 +425,7 @@ namespace diav0._0._1
             this.panel25.Controls.Add(this.textBox5);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel25.Location = new System.Drawing.Point(174, 0);
-            this.panel25.Margin = new System.Windows.Forms.Padding(2);
+            this.panel25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(151, 41);
             this.panel25.TabIndex = 16;
@@ -439,7 +439,7 @@ namespace diav0._0._1
             this.textBox5.ForeColor = System.Drawing.Color.Black;
             this.textBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textBox5.Location = new System.Drawing.Point(0, 0);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(151, 32);
             this.textBox5.TabIndex = 12;
@@ -451,7 +451,7 @@ namespace diav0._0._1
             this.panel28.Controls.Add(this.textBox4);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel28.Location = new System.Drawing.Point(32, 0);
-            this.panel28.Margin = new System.Windows.Forms.Padding(2);
+            this.panel28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(142, 41);
             this.panel28.TabIndex = 15;
@@ -465,7 +465,7 @@ namespace diav0._0._1
             this.textBox4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.Color.Black;
             this.textBox4.Location = new System.Drawing.Point(0, 0);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(142, 32);
             this.textBox4.TabIndex = 16;
@@ -477,7 +477,7 @@ namespace diav0._0._1
             // 
             this.panel27.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel27.Location = new System.Drawing.Point(325, 0);
-            this.panel27.Margin = new System.Windows.Forms.Padding(2);
+            this.panel27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(16, 41);
             this.panel27.TabIndex = 14;
@@ -486,7 +486,7 @@ namespace diav0._0._1
             // 
             this.panel26.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel26.Location = new System.Drawing.Point(0, 0);
-            this.panel26.Margin = new System.Windows.Forms.Padding(2);
+            this.panel26.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(32, 41);
             this.panel26.TabIndex = 12;
@@ -495,7 +495,7 @@ namespace diav0._0._1
             // 
             this.panel37.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel37.Location = new System.Drawing.Point(0, 0);
-            this.panel37.Margin = new System.Windows.Forms.Padding(2);
+            this.panel37.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel37.Name = "panel37";
             this.panel37.Size = new System.Drawing.Size(341, 107);
             this.panel37.TabIndex = 6;
@@ -504,34 +504,34 @@ namespace diav0._0._1
             // 
             this.panel24.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel24.Location = new System.Drawing.Point(269, 0);
-            this.panel24.Margin = new System.Windows.Forms.Padding(2);
+            this.panel24.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(8, 375);
+            this.panel24.Size = new System.Drawing.Size(8, 374);
             this.panel24.TabIndex = 9;
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(48, 375);
+            this.panel3.Size = new System.Drawing.Size(48, 374);
             this.panel3.TabIndex = 1;
             // 
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(221, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(48, 375);
+            this.panel4.Size = new System.Drawing.Size(48, 374);
             this.panel4.TabIndex = 3;
             // 
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(48, 348);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Location = new System.Drawing.Point(48, 347);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(173, 27);
             this.panel5.TabIndex = 7;
@@ -543,8 +543,8 @@ namespace diav0._0._1
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(48, 333);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox3.Location = new System.Drawing.Point(48, 332);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(173, 15);
@@ -557,7 +557,7 @@ namespace diav0._0._1
             // 
             this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel29.Location = new System.Drawing.Point(48, 0);
-            this.panel29.Margin = new System.Windows.Forms.Padding(2);
+            this.panel29.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(173, 66);
             this.panel29.TabIndex = 9;
@@ -571,7 +571,7 @@ namespace diav0._0._1
             this.panel30.Controls.Add(this.panel33);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel30.Location = new System.Drawing.Point(48, 66);
-            this.panel30.Margin = new System.Windows.Forms.Padding(2);
+            this.panel30.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(173, 135);
             this.panel30.TabIndex = 14;
@@ -581,7 +581,7 @@ namespace diav0._0._1
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(8, 37);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 80);
             this.pictureBox1.TabIndex = 13;
@@ -591,7 +591,7 @@ namespace diav0._0._1
             // 
             this.panel36.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel36.Location = new System.Drawing.Point(8, 116);
-            this.panel36.Margin = new System.Windows.Forms.Padding(2);
+            this.panel36.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel36.Name = "panel36";
             this.panel36.Size = new System.Drawing.Size(157, 19);
             this.panel36.TabIndex = 11;
@@ -600,7 +600,7 @@ namespace diav0._0._1
             // 
             this.panel35.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel35.Location = new System.Drawing.Point(8, 0);
-            this.panel35.Margin = new System.Windows.Forms.Padding(2);
+            this.panel35.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel35.Name = "panel35";
             this.panel35.Size = new System.Drawing.Size(157, 37);
             this.panel35.TabIndex = 10;
@@ -609,7 +609,7 @@ namespace diav0._0._1
             // 
             this.panel34.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel34.Location = new System.Drawing.Point(165, 0);
-            this.panel34.Margin = new System.Windows.Forms.Padding(2);
+            this.panel34.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(8, 135);
             this.panel34.TabIndex = 4;
@@ -618,7 +618,7 @@ namespace diav0._0._1
             // 
             this.panel33.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel33.Location = new System.Drawing.Point(0, 0);
-            this.panel33.Margin = new System.Windows.Forms.Padding(2);
+            this.panel33.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel33.Name = "panel33";
             this.panel33.Size = new System.Drawing.Size(8, 135);
             this.panel33.TabIndex = 2;
@@ -631,7 +631,7 @@ namespace diav0._0._1
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(48, 201);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ShortcutsEnabled = false;
@@ -653,9 +653,9 @@ namespace diav0._0._1
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(269, 375);
+            this.panel1.Size = new System.Drawing.Size(269, 374);
             this.panel1.TabIndex = 6;
             // 
             // panel31
@@ -663,9 +663,9 @@ namespace diav0._0._1
             this.panel31.BackColor = System.Drawing.Color.White;
             this.panel31.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel31.Location = new System.Drawing.Point(618, 0);
-            this.panel31.Margin = new System.Windows.Forms.Padding(2);
+            this.panel31.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(8, 375);
+            this.panel31.Size = new System.Drawing.Size(8, 374);
             this.panel31.TabIndex = 11;
             // 
             // FormIniciarSesion
@@ -681,8 +681,8 @@ namespace diav0._0._1
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(642, 414);
-            this.MinimumSize = new System.Drawing.Size(642, 414);
+            this.MaximumSize = new System.Drawing.Size(642, 413);
+            this.MinimumSize = new System.Drawing.Size(642, 413);
             this.Name = "FormIniciarSesion";
             this.Text = "Sistema Integral DIA%";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
