@@ -45,14 +45,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.IDVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fechayhora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.IDVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fechayhora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MontoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -199,8 +199,8 @@
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.panel14.Controls.Add(this.panel1);
             this.panel14.Controls.Add(this.dataGridView1);
+            this.panel14.Controls.Add(this.panel1);
             this.panel14.Controls.Add(this.panel18);
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Controls.Add(this.panel15);
@@ -242,10 +242,28 @@
             this.Fechayhora,
             this.MontoTotal});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 8);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 51);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(487, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(487, 294);
             this.dataGridView1.TabIndex = 20;
+            // 
+            // IDVenta
+            // 
+            this.IDVenta.HeaderText = "ID Venta";
+            this.IDVenta.Name = "IDVenta";
+            this.IDVenta.ReadOnly = true;
+            // 
+            // Fechayhora
+            // 
+            this.Fechayhora.HeaderText = "Fecha y Hora";
+            this.Fechayhora.Name = "Fechayhora";
+            this.Fechayhora.ReadOnly = true;
+            // 
+            // MontoTotal
+            // 
+            this.MontoTotal.HeaderText = "Monto Total";
+            this.MontoTotal.Name = "MontoTotal";
+            this.MontoTotal.ReadOnly = true;
             // 
             // panel18
             // 
@@ -303,24 +321,6 @@
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(503, 8);
             this.panel16.TabIndex = 13;
-            // 
-            // IDVenta
-            // 
-            this.IDVenta.HeaderText = "ID Venta";
-            this.IDVenta.Name = "IDVenta";
-            this.IDVenta.ReadOnly = true;
-            // 
-            // Fechayhora
-            // 
-            this.Fechayhora.HeaderText = "Fecha y Hora";
-            this.Fechayhora.Name = "Fechayhora";
-            this.Fechayhora.ReadOnly = true;
-            // 
-            // MontoTotal
-            // 
-            this.MontoTotal.HeaderText = "Monto Total";
-            this.MontoTotal.Name = "MontoTotal";
-            this.MontoTotal.ReadOnly = true;
             // 
             // FormManager
             // 
